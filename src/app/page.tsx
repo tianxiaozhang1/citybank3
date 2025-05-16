@@ -18,15 +18,15 @@ import { Check, ArrowRight, PiggyBank, Banknote, CreditCard, ChartNoAxesCombined
 // , CircleUser
 
 // Define a type for our feature cards for better type safety
-type FeatureCardProps = {
-  title: string;
-  description: string;
-  ctaText: string;
-  ctaLink: string;
-  backgroundColor?: string;
-  textColor?: string;
-  imageUrl?: string; // Optional image for the card
-};
+// type FeatureCardProps = {
+//   title: string;
+//   description: string;
+//   ctaText: string;
+//   ctaLink: string;
+//   backgroundColor?: string;
+//   textColor?: string;
+//   imageUrl?: string; // Optional image for the card
+// };
 
 // Reusable Feature Card Component
 // const FeatureCard: React.FC<FeatureCardProps> = ({

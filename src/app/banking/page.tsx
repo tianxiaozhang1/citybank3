@@ -283,10 +283,10 @@ const QuickAction: React.FC<QuickActionProps> = ({ title, icon: Icon }) => {
 };
 
 export default function DashboardPage() {
-  const [accounts, setAccounts] = useState<Account[]>(accountsData);
-  const [transactions, setTransactions] = useState<Transaction[]>(transactionsData);
-  // const accounts = useState<Account[]>(accountsData);
-  // const transactions = useState<Transaction[]>(transactionsData);
+  // const [accounts, setAccounts] = useState<Account[]>(accountsData);
+  // const [transactions, setTransactions] = useState<Transaction[]>(transactionsData);
+  const accounts = accountsData;
+  const transactions = transactionsData;
   
   const [greeting, setGreeting] = useState<string>('');
 
