@@ -1,13 +1,14 @@
 "use client";
 import Head from 'next/head';
 import React, { useState } from 'react';
-import { CreditCard, DollarSign, Calendar, ListPlus, Repeat, Users, Search, PlusCircle } from 'lucide-react';
+import { CreditCard, ListPlus, Search } from 'lucide-react';
+// DollarSign, Calendar, Repeat, Users, , PlusCircle
 import { inter, lora } from '../../../fonts';
 import Header from '../../../components/Header';
-import NextLink from 'next/link';
-import localFont from 'next/font/local';
+// import NextLink from 'next/link';
+// import localFont from 'next/font/local';
 
-const futura = localFont({ src: '../../../fontFiles/FuturaCyrillicBook.ttf' });
+// const futura = localFont({ src: '../../../fontFiles/FuturaCyrillicBook.ttf' });
 
 const formatCurrency = (amount: number) => new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(amount);
 

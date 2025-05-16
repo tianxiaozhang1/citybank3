@@ -9,7 +9,7 @@ import NextLink from 'next/link';
 
 const themeColor = "#7d948c"; // Desaturated Cyan/Greyish Green
 const themeTextColor = "text-white";
-const themeAccentTextColor = "text-[#596a65]"; // Darker shade for text emphasis
+// const themeAccentTextColor = "text-[#596a65]"; // Darker shade for text emphasis
 
 const formatCurrency = (amount: number) => new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(amount);
 

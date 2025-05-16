@@ -1,7 +1,8 @@
 "use client";
 import Head from 'next/head';
 import React, { useState } from 'react';
-import { PlusCircle, ChevronRight, CreditCard, DollarSign, TrendingUp, Home as HomeIcon, User, Shield, Check } from 'lucide-react';
+import { ChevronRight, CreditCard, DollarSign, TrendingUp, Home as HomeIcon, Shield, Check } from 'lucide-react';
+// PlusCircle, User, 
 import { inter } from '../../../fonts';
 import Header from '../../../components/Header';
 import NextLink from 'next/link';

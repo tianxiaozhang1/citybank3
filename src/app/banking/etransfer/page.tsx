@@ -1,11 +1,12 @@
 "use client";
 import Head from 'next/head';
 import React, { useState } from 'react';
-import { Send, UserPlus, History, Mail, Phone, DollarSign, MessageSquare, ShieldCheck, Info, CheckCircle } from 'lucide-react';
+import { Send, UserPlus, Mail, Phone, Info, CheckCircle } from 'lucide-react';
+// , History, DollarSign, MessageSquare, ShieldCheck
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraLight = localFont({ src: '../../../fontFiles/FuturaCyrillicLight.ttf' })
-const futuraBold = localFont({ src: '../../../fontFiles/FuturaCyrillicBold.ttf' })
+// const futuraLight = localFont({ src: '../../../fontFiles/FuturaCyrillicLight.ttf' })
+// const futuraBold = localFont({ src: '../../../fontFiles/FuturaCyrillicBold.ttf' })
 import { lora, inter } from '../../../fonts'; 
 import Header from '../../../components/Header';
 import NextLink from 'next/link';
@@ -177,7 +178,7 @@ const ETransferPage = () => {
               {activeTab === 'request' && (
                 <div>
                   <h2 className={sectionTitleClasses}>Request Money</h2>
-                  <p className="text-stone-600 text-base lg:text-xl">This feature is coming soon. You'll be able to request money from your contacts via Interac e-Transfer®.</p>
+                  <p className="text-stone-600 text-base lg:text-xl">This feature is coming soon. You&apos;ll be able to request money from your contacts via Interac e-Transfer®.</p>
                 </div>
               )}
 

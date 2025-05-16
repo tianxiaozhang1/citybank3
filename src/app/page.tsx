@@ -1,19 +1,21 @@
-"use client";
-import React, { useState, useEffect } from 'react';
+// "use client";
+import React from 'react';
+// , { useState, useEffect }
 import Head from 'next/head';
-import Image from 'next/image'; 
+// import Image from 'next/image'; 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraLight = localFont({ src: '../fontFiles/FuturaCyrillicLight.ttf' })
-const futuraBold = localFont({ src: '../fontFiles/FuturaCyrillicBold.ttf' })
-import { lora, inter } from '../fonts'; 
-
+// const futuraLight = localFont({ src: '../fontFiles/FuturaCyrillicLight.ttf' })
+// const futuraBold = localFont({ src: '../fontFiles/FuturaCyrillicBold.ttf' })
+import { lora } from '../fonts'; 
+// , inter
 import { Check, ArrowRight, PiggyBank, Banknote, CreditCard, ChartNoAxesCombined, HousePlus, 
           BanknoteArrowDown, LaptopMinimalCheckIcon, MessageCircleHeart, CirclePercent, CircleDollarSign, 
-          CircleCheck, CirclePlus, CircleUserRound, CircleUser, CircleParking } from 'lucide-react';
+          CircleCheck, CirclePlus, CircleUserRound, CircleParking } from 'lucide-react';
+// , CircleUser
 
 // Define a type for our feature cards for better type safety
 type FeatureCardProps = {
@@ -27,38 +29,38 @@ type FeatureCardProps = {
 };
 
 // Reusable Feature Card Component
-const FeatureCard: React.FC<FeatureCardProps> = ({
-  title,
-  description,
-  ctaText,
-  ctaLink,
-  backgroundColor = 'bg-gray-100', // Default background
-  textColor = 'text-gray-900', // Default text color
-  imageUrl,
-}) => {
-  return (
-    <div className={`p-6 md:p-8 rounded-lg shadow-lg ${backgroundColor} ${textColor} flex flex-col justify-between h-full`}>
-      <div>
-        {imageUrl && (
-          <div className="mb-4">
-            {/* In a real app, use Next/Image for optimization */}
-            <img src={imageUrl} alt={title} className="rounded w-full h-40 object-cover" />
-          </div>
-        )}
-        <h3 className="text-xl md:text-2xl font-semibold mb-3">{title}</h3>
-        <p className="text-sm md:text-base mb-4">{description}</p>
-      </div>
-      <a
-        href={ctaLink}
-        className={`inline-block mt-auto px-6 py-3 rounded-md font-semibold
-                    ${textColor === 'text-white' || textColor === 'text-gray-100' ? 'bg-white text-slate-800 hover:bg-gray-200' : 'bg-slate-800 text-white hover:bg-slate-700'}
-                    transition-colors duration-300`}
-      >
-        {ctaText}
-      </a>
-    </div>
-  );
-};
+// const FeatureCard: React.FC<FeatureCardProps> = ({
+//   title,
+//   description,
+//   ctaText,
+//   ctaLink,
+//   backgroundColor = 'bg-gray-100', // Default background
+//   textColor = 'text-gray-900', // Default text color
+//   imageUrl,
+// }) => {
+//   return (
+//     <div className={`p-6 md:p-8 rounded-lg shadow-lg ${backgroundColor} ${textColor} flex flex-col justify-between h-full`}>
+//       <div>
+//         {imageUrl && (
+//           <div className="mb-4">
+//             {/* In a real app, use Next/Image for optimization */}
+//             <img src={imageUrl} alt={title} className="rounded w-full h-40 object-cover" />
+//           </div>
+//         )}
+//         <h3 className="text-xl md:text-2xl font-semibold mb-3">{title}</h3>
+//         <p className="text-sm md:text-base mb-4">{description}</p>
+//       </div>
+//       <a
+//         href={ctaLink}
+//         className={`inline-block mt-auto px-6 py-3 rounded-md font-semibold
+//                     ${textColor === 'text-white' || textColor === 'text-gray-100' ? 'bg-white text-slate-800 hover:bg-gray-200' : 'bg-slate-800 text-white hover:bg-slate-700'}
+//                     transition-colors duration-300`}
+//       >
+//         {ctaText}
+//       </a>
+//     </div>
+//   );
+// };
 
 const InfoBoxText: React.FC<{ title: string; description: string }> = ({ title, description }) => {
   return (
@@ -80,15 +82,15 @@ interface InvestmentCardProps {
   innerBgColorClass: string;
   textColorClass: string;
   iconColorClass?: string; // Optional Tailwind class for icon color
-  barOne: string;
-  barTwo: string;
-  barThree: string;
+  // barOne: string;
+  // barTwo: string;
+  // barThree: string;
 }
 
 const InvestmentCard: React.FC<InvestmentCardProps> = ({
-  titleText,  premiumText,  feature1Text,  feature2Text,  feature3Text,  bgColorClass, bgHover, innerBgColorClass,  textColorClass,  barOne, barTwo, barThree, iconColorClass= 'text-gray-500', 
+  titleText,  premiumText,  feature1Text,  feature2Text,  feature3Text,  bgColorClass, bgHover, innerBgColorClass,  textColorClass, iconColorClass= 'text-gray-500', 
 }) => {
-
+// ,  barOne, barTwo, barThree
   return (
     <div className={`h-full m-6 lg:m-0  lg:space-y-4 rounded-3xl pb-6 lg:pb-0 ${bgHover} ${bgColorClass} ${textColorClass}`}>
       <div className='pt-8 px-8'>
@@ -256,16 +258,16 @@ const DayItem: React.FC<DayItemProps> = ({ day, icon: Icon, iconColor }) => {
 // Main Page Component
 export default function HomePage() {
   // Wealthsimple-inspired color palette (approximate)
-  const colors = {
-    primaryDark: '#000000', // Black for text and some backgrounds
-    primaryLight: '#FFFFFF', // White for text and backgrounds
-    accentPurple: '#583AE2', // A vibrant purple (adjust as needed)
-    accentGreen: '#00C853', // A vibrant green for CTAs or highlights
-    lightGray: '#F3F4F6',   // For backgrounds
-    mediumGray: '#E5E7EB', // For borders or subtle elements
-    darkGrayText: '#1F2937', // Darker text for readability
-    mediumGrayText: '#4B5563',
-  };
+  // const colors = {
+  //   primaryDark: '#000000', // Black for text and some backgrounds
+  //   primaryLight: '#FFFFFF', // White for text and backgrounds
+  //   accentPurple: '#583AE2', // A vibrant purple (adjust as needed)
+  //   accentGreen: '#00C853', // A vibrant green for CTAs or highlights
+  //   lightGray: '#F3F4F6',   // For backgrounds
+  //   mediumGray: '#E5E7EB', // For borders or subtle elements
+  //   darkGrayText: '#1F2937', // Darker text for readability
+  //   mediumGrayText: '#4B5563',
+  // };
 
   const infoBOX = `rounded-3xl h-full w-full py-6 px-8 lg:px-12 lg:py-12 flex items-center`
 
@@ -285,7 +287,7 @@ export default function HomePage() {
               <div className='h-full lg:flex lg:justify-end px-6 lg:px-0'>
                 <div className='w-full h-full lg:max-w-[600px] xl:max-w-[750px] flex text-center lg:text-start lg:justify-end items-center'>
                   <div className='px-4 lg:px-12'>
-                    <div className={`text-4xl md:text-5xl xl:text-7xl font-semibold mt-8 lg:mt-0 ${lora.className}`}>Your money's worth more.</div>
+                    <div className={`text-4xl md:text-5xl xl:text-7xl font-semibold mt-8 lg:mt-0 ${lora.className}`}>Your money&apos;s worth more.</div>
                     <div className={`${futura.className} text-lg lg:text-2xl xl:text-4xl my-4 lg:my-8`}>Get the most out of your money with smart investing products and personalized advice to build long-term wealth.</div>
                     <div className='w-full flex justify-center lg:justify-start mx-auto mb-8 lg:mb-0'>
                       <div className={`bg-gray-800 px-8 py-4 rounded-3xl text-stone-50 text-xl ${futura.className}`}>Get Started</div>
@@ -334,7 +336,7 @@ export default function HomePage() {
                           </div>
 
                           <div className='text-lg lg:text-xl xl:text-2xl'>Forgot password?</div>
-                          <div className='text-base lg:text-xl xl:text-2xl'>Don't have an account yet? Sign up</div>
+                          <div className='text-base lg:text-xl xl:text-2xl'>Don&apos;t have an account yet? Sign up</div>
 
                       </div>
                   </div>
@@ -346,7 +348,7 @@ export default function HomePage() {
               <div>
                 <div className='hidden lg:flex h-0.25 w-full bg-stone-800 mt-6 lg:mt-0 mb-6'></div>
                 <div className='text-xl lg:text-4xl font-semibold mt-12 lg:mt-0'>The best of chequing & saving</div>
-                <div className='lg:text-2xl mt-2'>Earn up to 2.75% in interest, with no everyday account fees. Plus, access your cash from ATMs Canada-wide and we'll cover the fees up to $5.</div>
+                <div className='lg:text-2xl mt-2'>Earn up to 2.75% in interest, with no everyday account fees. Plus, access your cash from ATMs Canada-wide and we&apos;ll cover the fees up to $5.</div>
               </div>
               <div>
                 <div className='h-0.25 w-full bg-stone-800 mt-6 lg:mt-0 mb-6'></div>
@@ -484,9 +486,9 @@ export default function HomePage() {
                 innerBgColorClass="bg-gray-50"
                 textColorClass="text-gray-800"
                 iconColorClass="text-gray-500"
-                barOne='w-2/3 h-1/4 bg-[#ac9f8a] opacity-60'
-                barTwo='w-full h-1/2 bg-[#88abda] opacity-80'
-                barThree='w-4/5 ml-20 h-1/4 bg-[#547689] opacity-80'
+                // barOne='w-2/3 h-1/4 bg-[#ac9f8a] opacity-60'
+                // barTwo='w-full h-1/2 bg-[#88abda] opacity-80'
+                // barThree='w-4/5 ml-20 h-1/4 bg-[#547689] opacity-80'
               />
 
               <InvestmentCard
@@ -500,9 +502,9 @@ export default function HomePage() {
                 innerBgColorClass="bg-neutral-800"
                 textColorClass="text-gray-200"
                 iconColorClass="text-gray-500"
-                barOne='w-4/5 h-1/4 bg-[#c6beb1] opacity-60'
-                barTwo='w-full h-1/2 bg-[#2e59a7] opacity-80'
-                barThree='w-3/5 ml-40 h-1/4 bg-[#66889e] opacity-80'
+                // barOne='w-4/5 h-1/4 bg-[#c6beb1] opacity-60'
+                // barTwo='w-full h-1/2 bg-[#2e59a7] opacity-80'
+                // barThree='w-3/5 ml-40 h-1/4 bg-[#66889e] opacity-80'
               />
             </div>
           </section>
@@ -521,7 +523,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <div className='text-xl lg:text-4xl font-semibold'>Keep more of your returns</div>
-                    <div className='lg:text-2xl mt-2'>Whether you're picking your own stocks, or letting us manage your investments, you won't need to worry about high fees eating into your returns.</div>
+                    <div className='lg:text-2xl mt-2'>Whether you&apos;re picking your own stocks, or letting us manage your investments, you won&apos;t need to worry about high fees eating into your returns.</div>
                   </div>
                 </div>
               </div>

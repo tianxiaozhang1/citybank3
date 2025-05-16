@@ -1,7 +1,8 @@
 "use client";
 import Head from 'next/head';
 import React, { useState, useEffect } from 'react';
-import { ArrowRightLeft, DollarSign, Calendar, Repeat, Info, CheckCircle } from 'lucide-react';
+import { ArrowRightLeft, Info, CheckCircle } from 'lucide-react';
+// , DollarSign, Calendar, Repeat
 import { inter, lora } from '../../../fonts'; // Import Lora
 import Header from '../../../components/Header';
 import NextLink from 'next/link';
@@ -25,7 +26,7 @@ const userAccountsData: BankAccount[] = [
 ];
 
 const mainTitleClasses = 'text-3xl sm:text-4xl lg:text-5xl mb-6 lg:mb-8 text-center lg:text-left text-stone-800';
-const sectionTitleClasses = 'text-xl sm:text-2xl lg:text-3xl mb-4 lg:mb-6 text-stone-800';
+// const sectionTitleClasses = 'text-xl sm:text-2xl lg:text-3xl mb-4 lg:mb-6 text-stone-800';
 const labelTextClasses = 'block text-base lg:text-xl font-semibold mb-1 lg:mb-2 text-stone-700';
 const inputBaseClasses = 'bg-white h-12 lg:h-16 w-full text-base lg:text-xl border-2 rounded-xl py-2 px-4 focus:outline-none focus:ring-2 focus:ring-stone-300';
 const inputDefaultBorder = 'border-stone-300';

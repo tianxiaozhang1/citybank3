@@ -1,10 +1,10 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { lora } from '../../fonts'; // Assuming this import is correct for your project structure
+import { lora } from '../../fonts'; 
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
-const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
+// const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
+// const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
 
 import Header from '../../components/Header'
 
@@ -630,9 +630,9 @@ function MortgageCalculator() {
                                                         <tbody>
                                                             {amortizationView === 'annual' ? (
                                                                 annualAmortization.map((entry, index) => {
-                                                                    const prevYearEndBalance = index === 0
-                                                                        ? effectivePrincipal - (downPaymentInput !== '' && downPaymentError === null ? Number(downPaymentInput) : 0)
-                                                                        : annualAmortization[index-1]?.endingBalance || 0;
+                                                                    // const prevYearEndBalance = index === 0
+                                                                    //     ? effectivePrincipal - (downPaymentInput !== '' && downPaymentError === null ? Number(downPaymentInput) : 0)
+                                                                    //     : annualAmortization[index-1]?.endingBalance || 0;
 
                                                                     return (
                                                                     <tr key={`annual-${index}`} className={tableRowClasses}>

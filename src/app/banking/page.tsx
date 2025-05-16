@@ -1,14 +1,16 @@
 "use client";
 import Head from 'next/head';
-import { ChevronDown, Banknote, CreditCard, DollarSign, TrendingUp, ArrowDownCircle, ArrowUpCircle, Home, Briefcase, ShoppingBag, MoreHorizontal, Car, Send, FileText, FilePlus, LogOut, User, Bell, Settings, LifeBuoy, ChartSpline } from 'lucide-react';
+import { ChevronDown, Banknote, CreditCard, DollarSign, TrendingUp, ArrowDownCircle, ArrowUpCircle, Home, Briefcase, ShoppingBag, MoreHorizontal, Car, Send, FileText, User, Settings, LifeBuoy, ChartSpline } from 'lucide-react';
+// FilePlus, LogOut, Bell, 
 import React, { useState, useEffect } from 'react';
 import NextLink from 'next/link'; // Renamed to avoid conflict if Link is imported from lucide or elsewhere
 
-import { inter, lora, aldrich, pt_sans_narrow } from '../../fonts';
+import { inter, lora } from '../../fonts';
+// , aldrich, pt_sans_narrow
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
-const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
+// const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
+// const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
 
 // import pixelMap from '../../images/pixelmap2.png'
 
@@ -134,7 +136,7 @@ const AccountCard: React.FC<{ account: Account; index: number }> = ({ account, i
   if (typeof window !== 'undefined' && window.innerWidth < 640) { // Simple mobile detection (adjust as needed)
     //  const topPercentage = Math.max(0, 1 - (index * 0.20)); // Calculate visible height percentage (min 20%)
     // const topPercentage = index < accounts.length - 1 ? 0.20 : 1; // Show 20% of top cards, 100% of last card
-    const cardTop = index * 20; // Offset for stacking effect
+    // const cardTop = index * 20; // Offset for stacking effect
 
     cardStyle = `absolute w-full h-full rounded-xl p-4 shadow-lg transition-all duration-300 ease-in-out ${account.bgColor}`;
   }
@@ -283,9 +285,12 @@ const QuickAction: React.FC<QuickActionProps> = ({ title, icon: Icon }) => {
 export default function DashboardPage() {
   const [accounts, setAccounts] = useState<Account[]>(accountsData);
   const [transactions, setTransactions] = useState<Transaction[]>(transactionsData);
+  // const accounts = useState<Account[]>(accountsData);
+  // const transactions = useState<Transaction[]>(transactionsData);
+  
   const [greeting, setGreeting] = useState<string>('');
 
-  const topThreeCards = "w-56 h-28 lg:w-56 lg:h-28 xl:w-70 xl:h-28 rounded-t-2xl mx-auto"
+  // const topThreeCards = "w-56 h-28 lg:w-56 lg:h-28 xl:w-70 xl:h-28 rounded-t-2xl mx-auto"
 
   useEffect(() => {
     const now = new Date();

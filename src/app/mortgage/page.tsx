@@ -1,8 +1,8 @@
-// app/dashboard/mortgage/page.tsx
 "use client";
 import Head from 'next/head';
 import React, { useState } from 'react';
-import { Home, Calendar, RefreshCw, DollarSign, Percent, FileText, PlusCircle, TrendingUp, ChevronRight } from 'lucide-react';
+import { Home, Calendar, RefreshCw, DollarSign, Percent, FileText, PlusCircle, TrendingUp } from 'lucide-react';
+// , ChevronRight
 import { inter } from '../../fonts';
 import Header from '../../components/Header'; // Adjusted path
 import NextLink from 'next/link';

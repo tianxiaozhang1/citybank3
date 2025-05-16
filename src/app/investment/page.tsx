@@ -2,10 +2,12 @@
 "use client";
 import Head from 'next/head';
 import React, { useState } from 'react';
-import { TrendingUp, DollarSign, Briefcase, ArrowUpRight, ArrowDownRight, PlusCircle, MinusCircle, BarChart2, Calendar, Eye } from 'lucide-react';
+import { DollarSign, ArrowUpRight, ArrowDownRight, PlusCircle, MinusCircle, BarChart2, Eye } from 'lucide-react';
+// TrendingUp, Briefcase, Calendar, 
 import { inter } from '../../fonts';
 import Header from '../../components/Header'; // Adjusted path
 import NextLink from 'next/link';
+import Image from 'next/image'
 
 const themeColor = "#32302f"; // Dark Grey/Charcoal
 const themeTextColor = "text-white";
@@ -143,7 +145,7 @@ const PortfolioPage = () => {
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Avg. Price</th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Current Price</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Day's Change</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Day&apos;s Change</th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Market Value</th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Gain/Loss</th>
                     <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
@@ -154,7 +156,7 @@ const PortfolioPage = () => {
                     <tr key={holding.id} className="hover:bg-gray-50">
                       <td className="px-4 py-4 whitespace-nowrap">
                         <div className="flex items-center">
-                          {holding.logoUrl && <img className="h-8 w-8 rounded-full mr-3" src={holding.logoUrl} alt={`${holding.name} logo`} />}
+                          {holding.logoUrl && <Image className="h-8 w-8 rounded-full mr-3" src={holding.logoUrl} alt={`${holding.name} logo`} />}
                           <div>
                             <div className="text-sm font-medium text-gray-900">{holding.name}</div>
                             <div className="text-xs text-gray-500">{holding.symbol}</div>

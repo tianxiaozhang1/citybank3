@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { lora } from '../fonts'; // Ensure this is the correct path to your font
+// import { lora } from '../fonts'; 
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../fontFiles/FuturaCyrillicBook.ttf' })
 
