@@ -235,20 +235,21 @@ const AccountItem: React.FC<AccountItemProps> = ({ accountName, balance, managed
 interface DayItemProps {
   day: number;
   icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-  iconColor?: string;
+  // Change from string (hex) to string (tailwind class)
+  iconColor?: string; // Tailwind text color class like "text-[#RRGGBB]"
   isDesktopOnly?: boolean;
 }
 
 const DayItem: React.FC<DayItemProps> = ({ day, icon: Icon, iconColor }) => {
   const containerClasses = `h-16 w-16 md:h-20 md:w-20 bg-white border-2 border-gray-200 pl-1.5 pr-1 pb-1 md:pb-1.5 md:pl-2 md:pr-1 md:pb-1.5 pt-1 rounded-lg shadow-sm`;
-  const iconContainerClasses = `h-2/3 flex justify-end items-center ${iconColor ? `text-[${iconColor}]` : 'text-gray-300'}`;
+  // const iconContainerClasses = `h-2/3 flex justify-end items-center ${iconColor ? `text-[${iconColor}]` : 'text-gray-300'}`;
 
   return (
       <div className={containerClasses}>
           <div className='h-1/3 flex md:text-lg font-semibold text-gray-600'>
               {day}
           </div>
-          <div className={iconContainerClasses}>
+          <div className={`h-2/3 flex justify-end items-center ${iconColor || 'text-gray-300'}`}>
               {Icon && <Icon strokeWidth={2} className={`md:stroke-2 w-[32px] h-[32px] md:w-[46px] md:h-[46px]`} />}
           </div>
       </div>
@@ -405,23 +406,24 @@ export default function HomePage() {
                             <div className=' grid grid-cols-4 md:grid-cols-5 xl:grid-cols-4 2xl:grid-cols-5 gap-1 mb-12 lg:mb-0
                                               lg:gap-2 overflow-hidden'
                             >
-                                <DayItem day={12} icon={CircleCheck} iconColor="#88abda" />
+
+                                <DayItem day={12} icon={CircleCheck} iconColor="text-[#88abda]" />
                                 <DayItem day={13} />
-                                <DayItem day={14} icon={CirclePlus} iconColor="#fac03d" />
-                                <DayItem day={15} icon={CircleUserRound} iconColor="#a4abd6" />
+                                <DayItem day={14} icon={CirclePlus} iconColor="text-[#fac03d]" />
+                                <DayItem day={15} icon={CircleUserRound} iconColor="text-[#a4abd6]" />
                                 <DayItem day={16} />
                                 <DayItem day={17} />
-                                <DayItem day={18} icon={CircleDollarSign} iconColor="#ecb0c1" />
+                                <DayItem day={18} icon={CircleDollarSign} iconColor="text-[#ecb0c1]" />
                                 <DayItem day={19} />
                                 <DayItem day={20} />
-                                <DayItem day={21} icon={CircleCheck} iconColor="#88abda" />
-                                <DayItem day={22} icon={CircleParking} iconColor="#c0d695"/>
+                                <DayItem day={21} icon={CircleCheck} iconColor="text-[#88abda]" />
+                                <DayItem day={22} icon={CircleParking} iconColor="text-[#c0d695]"/>
                                 <DayItem day={23} />
                                 <div className='hidden md:flex xl:hidden 2xl:flex w-20'>
                                   <DayItem day={24}/>
                                 </div>
                                 <div className='hidden md:flex xl:hidden 2xl:flex w-20'>
-                                  <DayItem day={25} icon={CircleCheck} iconColor="#88abda"/>
+                                  <DayItem day={25} icon={CircleCheck} iconColor="text-[#88abda]"/>
                                 </div>
                                 <div className='hidden md:flex xl:hidden 2xl:flex w-20'>
                                   <DayItem day={26}/>
