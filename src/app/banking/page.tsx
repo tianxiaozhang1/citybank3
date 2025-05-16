@@ -1,6 +1,5 @@
 "use client";
 import Head from 'next/head';
-import { Metadata } from 'next';
 
 import { ChevronDown, Banknote, CreditCard, DollarSign, TrendingUp, ArrowDownCircle, ArrowUpCircle, Home, Briefcase, ShoppingBag, MoreHorizontal, Car, Send, FileText, User, Settings, LifeBuoy, ChartSpline } from 'lucide-react';
 // FilePlus, LogOut, Bell, 
