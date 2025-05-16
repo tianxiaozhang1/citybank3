@@ -406,7 +406,6 @@ export default function HomePage() {
                             <div className=' grid grid-cols-4 md:grid-cols-5 xl:grid-cols-4 2xl:grid-cols-5 gap-1 mb-12 lg:mb-0
                                               lg:gap-2 overflow-hidden'
                             >
-
                                 <DayItem day={12} icon={CircleCheck} iconColor="text-[#88abda]" />
                                 <DayItem day={13} />
                                 <DayItem day={14} icon={CirclePlus} iconColor="text-[#fac03d]" />
