@@ -1,6 +1,5 @@
-// "use client";
-import React from 'react';
-// , { useState, useEffect }
+"use client";
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 // import Image from 'next/image'; 
 import Header from '../components/Header'
@@ -121,11 +120,6 @@ const InvestmentCard: React.FC<InvestmentCardProps> = ({
           Chequing account interest
       </div>
 
-      {/* <div className='h-24 xl:mt-12 w-full overflow-hidden '>
-          <div className={barOne}></div>
-          <div className={barTwo}></div>
-          <div className={barThree}></div>
-      </div>  */}
     </div>
   );
 };
@@ -156,7 +150,7 @@ const HelpItem: React.FC<HelpItemProps> = ({ title, description, icon: Icon }) =
       </div>
       <div className={`w-3/4 xl:w-2/3 ml-2 lg:-ml-2 xl:-ml-6 flex items-center ${futura.className}`}>
           <div className={`text-stone-700`}>
-              <div className='font-semibold xl:text-xl 2xl:text-2xl leading-4 mb-0.5 xl:leading-8 lg:mb-2'>{title}</div>
+              <div className='font-semibold lg:text-lg 2xl:text-2xl leading-4 mb-0.5 xl:leading-8 lg:mb-2'>{title}</div>
               <div className='xl:text-lg 2xl:text-xl leading-4 xl:leading-5'>{description}</div>
           </div>
       </div>
@@ -269,7 +263,18 @@ export default function HomePage() {
   //   darkGrayText: '#1F2937', // Darker text for readability
   //   mediumGrayText: '#4B5563',
   // };
+  const [greeting, setGreeting] = useState<string>('');
 
+  // const topThreeCards = "w-56 h-28 lg:w-56 lg:h-28 xl:w-70 xl:h-28 rounded-t-2xl mx-auto"
+
+  useEffect(() => {
+    const now = new Date();
+    const hour = now.getHours();
+    if (hour >= 5 && hour < 12) setGreeting('Good morning');
+    else if (hour >= 12 && hour < 17) setGreeting('Good afternoon');
+    else if (hour >= 17 && hour < 21) setGreeting('Good evening');
+    else setGreeting('Good day');
+  }, []);
   const infoBOX = `rounded-3xl h-full w-full py-6 px-8 lg:px-12 lg:py-12 flex items-center`
 
   return (
@@ -284,7 +289,7 @@ export default function HomePage() {
 
       <main className='bg-stone-50'>
 
-          <section className='lg:grid lg:grid-cols-2 xl:h-166 w-full lg:pt-2 xl:pt-8 px-4 lg:px-36'>
+          <section className='lg:grid lg:grid-cols-2 w-full lg:pt-10 xl:pt-16 lg:pb-4 xl:pb-8 px-4 lg:px-36'>
               <div className='h-full lg:flex lg:justify-end px-6 lg:px-0'>
                 <div className='w-full h-full lg:max-w-[600px] xl:max-w-[750px] flex text-center lg:text-start lg:justify-end items-center'>
                   <div className='px-4 lg:px-12'>
@@ -300,7 +305,7 @@ export default function HomePage() {
               <div className='h-full flex items-center justify-center lg:justify-start'>
                   <div className={`border-2 border-stone-200 flex items-center mx-6 md:mx-10 lg:mx-0 py-6 lg:py-0 lg:h-120 xl:h-140 px-6 md:px-8 lg:w-176 rounded-4xl justify-center bg-slate-50 shadow-sm ${futura.className}`}>
                       <div>
-                          <div className='text-lg lg:text-2xl xl:text-3xl'>Good morning.</div>
+                          <div className='text-lg lg:text-2xl xl:text-3xl'>{greeting}.</div>
                           <div className='text-lg lg:text-2xl xl:text-3xl'>Sign in to your account</div>
 
                           <input
@@ -365,7 +370,7 @@ export default function HomePage() {
 
           <section className='bg-[#eae6da] lg:h-180'>
               <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto h-full'>
-                  <div className='h-full lg:py-16 lg:px-6 w-full flex justify-center items-center'>
+                  <div className='h-full lg:pt-12 lg:pb-24 lg:px-6 w-full flex justify-center items-center'>
                       <div className='h-full w-full'>
                           <div className={`pt-10 pb-4 lg:pb-0 lg:pt-2 text-2xl lg:text-4xl text-center flex items-center justify-center ${lora.className}`}>How can we help you today?</div>
                           <div className='lg:mt-8 mb-12 lg:mb-0 w-full grid grid-cols-1 gap-4 my-6 lg:my-0 lg:grid-cols-3 lg:gap-6'>

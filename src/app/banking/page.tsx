@@ -16,6 +16,7 @@ const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
 // import pixelMap from '../../images/pixelmap2.png'
 
 import Header from '../../components/Header'; 
+import Footer from '../../components/Footer'; 
 
 // const CreditCardChip = () => {
 //   return (
@@ -173,21 +174,21 @@ const TransactionRow: React.FC<{ transaction: Transaction }> = ({ transaction })
   const IconComponent = transaction.icon;
 
   return (
-    <li className="py-4 px-1 hover:bg-gray-50 rounded-md transition-colors duration-150">
-      <div className="flex items-center space-x-4">
-        <div className={`p-2.5 rounded-full ${isPositive ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}>
-          <IconComponent size={20} />
+    <li className={`py-3 lg:py-4 px-0 lg:px-2 xl:px-8 rounded-3xl hover:bg-white transition-colors duration-150 ${futura.className}`}>
+      <div className="flex items-center space-x-4 lg:py-2">
+        <div className={`p-2 xl:p-4 rounded-full border-2 border-stone-200 ${isPositive ? ' text-[#779649]' : ' text-[#e67762]'}`}>
+          <IconComponent size={22} className="lg:w-[42px] lg:h-[42px]" />
         </div>
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-gray-800 truncate">{transaction.description}</p>
-          <p className="text-xs text-gray-500">
+        <div className="flex-1 min-w-0 px-2">
+          <p className="text-sm lg:text-2xl font-semibold text-gray-600 truncate">{transaction.description}</p>
+          <p className="text-xs lg:text-xl text-gray-500">
             {new Date(transaction.date).toLocaleDateString('en-CA', { month: 'short', day: 'numeric', year: 'numeric' })}
             {' - '}
             {transaction.accountName ? `${transaction.accountName} - ` : ''}
             {transaction.category}
           </p>
         </div>
-        <div className={`text-sm font-semibold ${isPositive ? 'text-green-600' : 'text-gray-800'}`}>
+        <div className={`text-sm lg:text-2xl font-semibold ${isPositive ? 'text-[#779649]' : 'text-gray-600'}`}>
           {isPositive ? '+' : ''}{formatCurrency(transaction.amount)}
         </div>
         <button className="text-gray-400 hover:text-gray-600 p-1">
@@ -315,17 +316,16 @@ export default function DashboardPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={`min-h-screen bg-gray-50 ${inter.className}`}>
+      <div className={`min-h-screen bg-stone-50 ${inter.className}`}>
         <Header />
         <main className="container mx-auto p-4 sm:p-6 lg:p-8">
           <div className="mb-6 lg:mb-10">
-            <h1 className="text-xl lg:text-4xl font-bold text-gray-800">{greeting}, User!</h1>
+            <h1 className={`text-xl lg:text-4xl font-bold text-gray-800 ${lora.className}`}>{greeting}, User!</h1>
             {/* <p className="text-gray-600 mt-1">Here's your financial snapshot.</p> */}
           </div>
 
-
           {/* AccountCard SECTION */}
-          <section id="accounts-overview" className="mb-12">
+          <section id="accounts-overview" className="hidden mb-12">
             <div className="flex justify-between items-center mb-6">
               <h2 className={`text-2xl lg:text-3xl lg:font-bold font-semibold text-gray-700 ${lora.className}`}>Your Accounts</h2>
             </div>
@@ -338,7 +338,7 @@ export default function DashboardPage() {
 
           </section>
  
-          <section className='bg-[#eae6da] w-full'>
+          <section className='hidden bg-[#eae6da] w-full'>
               <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto h-full'>
                   <div className='h-full lg:py-6 lg:px-6 w-full flex justify-center items-center'>
                       <div className='h-full w-full '>
@@ -358,7 +358,7 @@ export default function DashboardPage() {
               </div>
           </section>
 
-          <section id="quick-actions" className="mb-12">
+          <section id="quick-actions" className="hidden mb-12">
              <h2 className={`text-2xl lg:text-3xl font-semibold text-gray-700 mb-5 ${lora.className }`}>Quick Actions</h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <ActionButton href="/banking/pay-bills" icon={CreditCard} label="Pay Bills" />
@@ -369,7 +369,7 @@ export default function DashboardPage() {
           </section>
 
           {summaryItemsData.length > 0 && (
-            <section id="summary-overview" className="mb-12">
+            <section id="summary-overview" className="hidden mb-12">
               <h2 className={`text-2xl font-semibold text-gray-700 mb-6 ${lora.className}`}>Other Holdings & Services</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {summaryItemsData.map((item, index) => (
@@ -381,12 +381,12 @@ export default function DashboardPage() {
 
           <section id="recent-transactions">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-semibold text-gray-700">Recent Transactions</h2>
-              <NextLink href="/banking/all-transactions" className="flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800">
+              <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Recent Transactions</h2>
+              <NextLink href="/banking/all-transactions" className={`flex items-center text-sm lg:text-xl font-medium text-gray-600 hover:text-gray-800 ${futura.className}`}>
                 View All Transactions <ChevronDown size={18} className="ml-1" />
               </NextLink>
             </div>
-            <div className="bg-white shadow-lg rounded-xl p-3 sm:p-6">
+            <div className="bg-stone-50 shadow-md rounded-xl p-3 lg:p-6 border-stone-200 border-2 sm:p-6">
               {transactions.length > 0 ? (
                 <ul className="divide-y divide-gray-100">
                   {allTransactionsWithAccountName.slice(0, 5).map(transaction => ( // Show top 5
@@ -399,7 +399,7 @@ export default function DashboardPage() {
             </div>
           </section>
 
-        <aside className="mt-16">
+        <aside className="hidden mt-16">
             <h2 className="text-2xl font-semibold text-gray-700 mb-6">Need Help?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <NextLink href="/banking/profile-settings" className="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
@@ -422,21 +422,9 @@ export default function DashboardPage() {
 
 
         </main>
-
-        <footer className="py-10 mt-20 border-t border-gray-200">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} MyBank. All rights reserved.
-            <p className="mt-1">MyBank is a fictitious entity. This dashboard is for demonstration purposes only.</p>
-            <div className="mt-4 space-x-4">
-                <NextLink href="/privacy-policy" className="hover:text-indigo-600">Privacy Policy</NextLink>
-                <span>&bull;</span>
-                <NextLink href="/terms-of-service" className="hover:text-indigo-600">Terms of Service</NextLink>
-                <span>&bull;</span>
-                <NextLink href="/contact-us" className="hover:text-indigo-600">Contact Us</NextLink>
-            </div>
-          </div>
-        </footer>
       </div>
+
+      <Footer />
     </>
   );
 }
