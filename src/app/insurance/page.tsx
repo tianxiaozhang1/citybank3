@@ -2,11 +2,12 @@
 "use client";
 import Head from 'next/head';
 import React from 'react';
-import { Shield, Car, Home as HomeIcon, FileText, PlusCircle, AlertTriangle, Phone, MinusCircle, DollarSign } from 'lucide-react';
+import { Shield, Car, Home as HomeIcon, FileText, PlusCircle, AlertTriangle, Phone } from 'lucide-react';
+// , MinusCircle, DollarSign
 import { inter, lora } from '../../fonts';
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
+// const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
 import Header from '../../components/Header'; // Adjusted path
 import NextLink from 'next/link';
 
@@ -110,8 +111,8 @@ const InsurancePage = () => {
         <main className="container mx-auto p-4 sm:p-6 lg:p-8">
           <div className="mb-8 flex justify-between items-center">
             <div>
-                <h1 className="text-3xl font-bold text-gray-800">Your Insurance Policies</h1>
-                <p className="text-gray-600 mt-1">Overview of your active policies with MyBank Insurance.</p>
+                <h1 className={`text-xl lg:text-4xl font-bold text-gray-800 ${lora.className}`}>Your Insurance Policies</h1>
+                <p className={`text-gray-600 mt-1 lg:text-xl ${futura.className}`}>Overview of your active policies with City Bank Insurance.</p>
             </div>
             {/* <NextLink href="/dashboard" className="text-sm text-indigo-600 hover:text-indigo-800">
                 &larr; Back to Dashboard

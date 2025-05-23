@@ -1,18 +1,19 @@
 "use client";
 import Head from 'next/head';
 import React, { useState } from 'react';
-import { Home, Calendar, RefreshCw, DollarSign, Percent, FileText, PlusCircle, TrendingUp, ChevronDown, ChartSpline, ChevronLeft } from 'lucide-react';
+import { Home, Calendar, RefreshCw, DollarSign, Percent, FileText, PlusCircle, TrendingUp, ChevronDown, ChevronLeft } from 'lucide-react';
+// , ChartSpline
 import { inter, lora } from '../../fonts';
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
+// const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import NextLink from 'next/link';
 
-const themeColor = "#6d7844"; // Olive Green
-const themeTextColor = "text-white"; // For buttons with themeColor bg
-const themeAccentTextColor = "text-[#586037]"; // Darker shade of theme for text
+// const themeColor = "#6d7844"; // Olive Green
+// const themeTextColor = "text-white"; // For buttons with themeColor bg
+// const themeAccentTextColor = "text-[#586037]"; // Darker shade of theme for text
 
 const formatCurrency = (amount: number) => new Intl.NumberFormat('en-CA', { style: 'currency', currency: 'CAD' }).format(amount);
 

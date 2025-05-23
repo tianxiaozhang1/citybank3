@@ -2,15 +2,16 @@
 "use client";
 import Head from 'next/head';
 import React, { useState } from 'react';
-import { DollarSign, ArrowUpRight, ArrowDownRight, PlusCircle, MinusCircle, BarChart2, Eye, FileText, RefreshCw  } from 'lucide-react';
+import { DollarSign, ArrowUpRight, ArrowDownRight, PlusCircle, MinusCircle, BarChart2  } from 'lucide-react';
+// , Eye, FileText, RefreshCw
 // TrendingUp, Briefcase, Calendar, 
 import { inter, lora } from '../../fonts';
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
+// const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
 import Header from '../../components/Header'; // Adjusted path
 import NextLink from 'next/link';
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const themeColor = "#32302f"; // Dark Grey/Charcoal
 const themeTextColor = "text-white";
@@ -110,8 +111,8 @@ const PortfolioPage = () => {
         <main className="container mx-auto p-4 sm:p-6 lg:p-8">
           <div className="mb-8 flex justify-between items-center">
              <div>
-                <h1 className="text-3xl font-bold text-gray-800">Investment Portfolio</h1>
-                <p className="text-gray-600 mt-1">Last updated: {portfolioOverviewData.lastUpdated}</p>
+                <h1 className={`text-xl lg:text-4xl font-bold text-gray-800 ${lora.className}`}>Investment Portfolio</h1>
+                <p className={`text-gray-600 mt-1 lg:text-xl ${futura.className}`}>Last updated: {portfolioOverviewData.lastUpdated}</p>
             </div>
             {/* <NextLink href="/dashboard" className="text-sm text-indigo-600 hover:text-indigo-800">
                 &larr; Back to Dashboard
