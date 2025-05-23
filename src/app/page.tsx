@@ -14,52 +14,6 @@ import { lora } from '../fonts';
 import { Check, ArrowRight, PiggyBank, Banknote, CreditCard, ChartNoAxesCombined, HousePlus, 
           BanknoteArrowDown, LaptopMinimalCheckIcon, MessageCircleHeart, CirclePercent, CircleDollarSign, 
           CircleCheck, CirclePlus, CircleUserRound, CircleParking } from 'lucide-react';
-// , CircleUser
-
-// Define a type for our feature cards for better type safety
-// type FeatureCardProps = {
-//   title: string;
-//   description: string;
-//   ctaText: string;
-//   ctaLink: string;
-//   backgroundColor?: string;
-//   textColor?: string;
-//   imageUrl?: string; // Optional image for the card
-// };
-
-// Reusable Feature Card Component
-// const FeatureCard: React.FC<FeatureCardProps> = ({
-//   title,
-//   description,
-//   ctaText,
-//   ctaLink,
-//   backgroundColor = 'bg-gray-100', // Default background
-//   textColor = 'text-gray-900', // Default text color
-//   imageUrl,
-// }) => {
-//   return (
-//     <div className={`p-6 md:p-8 rounded-lg shadow-lg ${backgroundColor} ${textColor} flex flex-col justify-between h-full`}>
-//       <div>
-//         {imageUrl && (
-//           <div className="mb-4">
-//             {/* In a real app, use Next/Image for optimization */}
-//             <img src={imageUrl} alt={title} className="rounded w-full h-40 object-cover" />
-//           </div>
-//         )}
-//         <h3 className="text-xl md:text-2xl font-semibold mb-3">{title}</h3>
-//         <p className="text-sm md:text-base mb-4">{description}</p>
-//       </div>
-//       <a
-//         href={ctaLink}
-//         className={`inline-block mt-auto px-6 py-3 rounded-md font-semibold
-//                     ${textColor === 'text-white' || textColor === 'text-gray-100' ? 'bg-white text-slate-800 hover:bg-gray-200' : 'bg-slate-800 text-white hover:bg-slate-700'}
-//                     transition-colors duration-300`}
-//       >
-//         {ctaText}
-//       </a>
-//     </div>
-//   );
-// };
 
 const InfoBoxText: React.FC<{ title: string; description: string }> = ({ title, description }) => {
   return (

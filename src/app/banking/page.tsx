@@ -1,7 +1,7 @@
 "use client";
 import Head from 'next/head';
 
-import { ChevronDown, Banknote, CreditCard, DollarSign, TrendingUp, ArrowDownCircle, ArrowUpCircle, Home, Briefcase, ShoppingBag, MoreHorizontal, Car, Send, FileText, User, Settings, LifeBuoy, ChartSpline } from 'lucide-react';
+import { ChevronDown, Banknote, CreditCard, DollarSign, TrendingUp, ArrowDownCircle, ArrowUpCircle, Home, Briefcase, ShoppingBag, MoreHorizontal, Car, Send, FileText, User, Settings, LifeBuoy, ChartSpline, House } from 'lucide-react';
 // FilePlus, LogOut, Bell, 
 import React, { useState, useEffect } from 'react';
 import NextLink from 'next/link'; // Renamed to avoid conflict if Link is imported from lucide or elsewhere
@@ -11,8 +11,7 @@ import { inter, lora } from '../../fonts';
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
 // const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
-// const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
-
+const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
 // import pixelMap from '../../images/pixelmap2.png'
 
 import Header from '../../components/Header'; 
@@ -60,7 +59,8 @@ interface Account {
   bgColor: string; // For card background
   textColor?: string; // Optional: for text on dark backgrounds
   icon: React.ElementType;
-  href?: string; // Optional link for the account card
+  // href?: string; // Optional link for the account card
+  href: string; // Now it's always a string
 }
 
 interface Transaction {
@@ -83,6 +83,16 @@ interface SummaryItem {
   href: string; // Link for the summary card
 }
 
+interface HelpItem {
+  id: string;
+  name: string;
+  text: string;
+  icon: React.ElementType;
+  bgColor: string;
+  textColor?: string;
+  href: string; 
+}
+
 // Helper function to format currency
 const formatCurrency = (amount: number, currency: string = 'CAD') => {
   return new Intl.NumberFormat('en-CA', { style: 'currency', currency }).format(amount);
@@ -90,10 +100,16 @@ const formatCurrency = (amount: number, currency: string = 'CAD') => {
 
 // Data (removed "sample" from names)
 const accountsData: Account[] = [
-  { id: 'acc1', name: 'Everyday Chequing', type: 'Chequing', balance: 12530.75, currency: 'CAD', bgColor: 'bg-gradient-to-br from-[#106898] to-[#06436F]', textColor: 'text-white', icon: Banknote },
-  { id: 'acc2', name: 'High-Interest Savings', type: 'Savings', balance: 85200.00, currency: 'CAD', bgColor: 'bg-gradient-to-br from-[#5D8351] to-[#4F794A]', textColor: 'text-white', icon: DollarSign },
-  { id: 'acc3', name: 'Growth Portfolio', type: 'Investment', balance: 47300.50, currency: 'CAD', bgColor: 'bg-gradient-to-br from-[#D3A237] to-[#D08635]', textColor: 'text-white', icon: TrendingUp, href: '/investment' },
-  { id: 'acc4', name: 'Platinum Rewards Card', type: 'Credit Card', balance: -1250.20, currency: 'CAD', bgColor: 'bg-gradient-to-br from-[#32302f] to-[#45465E]', textColor: 'text-white', icon: CreditCard },
+  { id: 'acc1', name: 'Everyday Chequing', href: '/mortgage', type: 'Chequing', balance: 12530.75, currency: 'CAD', bgColor: 'bg-[#106898]', textColor: 'text-white', icon: Banknote },
+  // [#106898] #abc8be
+  { id: 'acc2', name: 'High-Interest Savings', href: '/mortgage', type: 'Savings', balance: 85200.00, currency: 'CAD', bgColor: 'bg-[#5D8351]', textColor: 'text-white', icon: DollarSign },
+  { id: 'acc3', name: 'Platinum Rewards Card', href: '/mortgage', type: 'Credit Card', balance: -1250.20, currency: 'CAD', bgColor: 'bg-[#32302f]', textColor: 'text-white', icon: CreditCard },
+];
+
+const summaryItemsData: SummaryItem[] = [
+  { title: 'Mortgage Balance', value: formatCurrency(348500, 'CAD'), icon: Home, bgColor: 'bg-[#6d7844]', textColor: 'text-white', href: '/mortgage' },
+  { title: 'Portfolio Value', value: formatCurrency(47300.50, 'CAD'), icon: ChartSpline, bgColor: 'bg-[#90826b]', textColor: 'text-white', href: '/investment' },
+  { title: 'Insurance (Home & Auto)', value: 'View Policies', icon: FileText, bgColor: 'bg-[#7d948c]', textColor: 'text-white', href: '/insurance' },
 ];
 
 const transactionsData: Transaction[] = [
@@ -107,64 +123,48 @@ const transactionsData: Transaction[] = [
   { id: 'txn8', date: '2025-05-05', description: 'Esso Gas', amount: -62.50, accountId: 'acc4', category: 'Automotive', icon: Car },
 ];
 
-const summaryItemsData: SummaryItem[] = [
-  { title: 'Mortgage Balance', value: formatCurrency(348500, 'CAD'), icon: Home, bgColor: 'bg-[#6d7844]', textColor: 'text-white', href: '/mortgage' },
-  { title: 'Portfolio Value', value: formatCurrency(47300.50, 'CAD'), icon: ChartSpline, bgColor: 'bg-[#90826b]', textColor: 'text-white', href: '/investment' },
-  { title: 'Insurance (Home & Auto)', value: 'View Policies', icon: FileText, bgColor: 'bg-[#7d948c]', textColor: 'text-white', href: '/insurance' },
-];
-
 // Account Card Component
 const AccountCard: React.FC<{ account: Account; index: number }> = ({ account, index }) => {
   const IconComponent = account.icon;
-  const cardContent = (
-    <>
-      <div className={`flex justify-between items-start mb-4 ${futura.className}`}>
-        <h3 className={`text-xl font-semibold ${account.textColor || 'text-gray-800'}`}>{account.name}</h3>
-        <IconComponent size={28} className={`${account.textColor || 'text-gray-700'} opacity-90`} />
-      </div>
-      <p className={`text-sm opacity-90 mb-1 ${account.textColor || 'text-gray-600'}`}>{account.type}</p>
-      <div className="flex justify-between items-center">
-        <p className={`text-3xl font-bold tracking-tight ${account.textColor || 'text-gray-900'}`}>{formatCurrency(account.balance, account.currency)}</p>
-        {account.type === 'Credit Card' && account.balance < 0 && (
-          <p className={`text-xs opacity-80 mt-1 ${account.textColor || 'text-gray-500'}`}>Amount Owing</p>
-        )}
-      </div>
-    </>
-  );
-
-  let cardStyle = `rounded-xl p-6 shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 ${account.bgColor}`;
-
-  // Mobile-specific styling for stacking cards
-  if (typeof window !== 'undefined' && window.innerWidth < 640) { // Simple mobile detection (adjust as needed)
-    //  const topPercentage = Math.max(0, 1 - (index * 0.20)); // Calculate visible height percentage (min 20%)
-    // const topPercentage = index < accounts.length - 1 ? 0.20 : 1; // Show 20% of top cards, 100% of last card
-    // const cardTop = index * 20; // Offset for stacking effect
-
-    cardStyle = `absolute w-full h-full rounded-xl p-4 shadow-lg transition-all duration-300 ease-in-out ${account.bgColor}`;
-  }
-
   return (
-    <div className={cardStyle} style={{
-      // height: typeof window !== 'undefined' && window.innerWidth < 640 ? `${topPercentage * 100}%` : 'auto',
-      overflow: 'hidden',
-      position: typeof window !== 'undefined' && window.innerWidth < 640 ? 'absolute' : 'relative',
-      bottom: typeof window !== 'undefined' && window.innerWidth < 640 ? `${index * 20}%` : '0',
-      // position: 'absolute',
-      // bottom: `${index * 20}%`,
-      // left: 0,
-      // width: '100%',
-      // height: '100%',
-      // height: typeof window !== 'undefined' && window.innerWidth < 640 ? `${topPercentage * 100}%` : 'auto',
-      // overflow: 'hidden',
-    }}>
-      {account.href ? (
-        <NextLink href={account.href} className="block">
-          {cardContent}
-        </NextLink>
-      ) : (
-        cardContent
-      )}
-    </div>
+    <NextLink href={account.href} className={``}>
+        <div className={`${futura.className} ${account.bgColor} ${account.textColor} rounded-xl py-4 lg:py-12 shadow-sm flex justify-center `}>
+            <div className='flex w-full px-6 xl:px-8 2xl:px-12'>
+                <div className='flex justify-center'>
+                    <IconComponent size={88} strokeWidth={1} className='border-2 border-gray-300 rounded-full p-1 md:p-4 mt-1 md:mt-0 mb-1 w-[46px] h-[46px] md:w-[68px] md:h-[68px] xl:w-[88px] xl:h-[88px]'/>
+                </div>
+                <div className='items-center flex ml-2 md:ml-4'>
+                    <div>
+                        <div className={`text-lg lg:text-xl 2xl:text-2xl ${futura.className}`}>{account.name}</div>
+                        <div className='text-lg lg:text-2xl font-semibold'>{formatCurrency(account.balance, account.currency)}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </NextLink>
+  );
+};
+
+const helpData: HelpItem[] = [
+  { id: '1', name: 'Profile & Settings', href: '/mortgage', text: 'Manage your personal information and security settings.', bgColor: 'bg-[#e0e8ef]', textColor: 'text-stone-600', icon: User },
+  { id: '2', name: 'FAQs & Support', href: '/mortgage', text: 'Find answers to common questions or contact support.', bgColor: 'bg-[#e5ecc7]', textColor: 'text-stone-600', icon: LifeBuoy },
+  { id: '3', name: 'Financial Tools', href: '/mortgage', text: 'Access budgeting calculators and planning resources.', bgColor: 'bg-[#e4e2dd]', textColor: 'text-stone-600', icon: Settings },
+];
+
+const HelpCard: React.FC<{ item: HelpItem; index: number }> = ({ item, index }) => {
+  const IconComponent = item.icon;
+  return (
+    <NextLink href={item.href} className={``}>
+        <div className={`${futura.className} ${item.bgColor} rounded-xl py-2 lg:py-16 shadow-md flex justify-center text-gray-700`}>
+            <div>
+                {/* <div className='flex justify-center'>
+                    <IconComponent size={88} strokeWidth={1} className='border-2 border-gray-400 rounded-full p-4  mb-1' />
+                </div> */}
+                <div className='text-xl lg:text-3xl text-center font-semibold'>{item.name}</div>
+                <div className='text-center text-lg lg:text-2xl lg:px-8 lg:leading-5 lg:my-2'>{item.text}</div>
+            </div>
+        </div>
+    </NextLink>
   );
 };
 
@@ -174,7 +174,7 @@ const TransactionRow: React.FC<{ transaction: Transaction }> = ({ transaction })
   const IconComponent = transaction.icon;
 
   return (
-    <li className={`py-3 lg:py-4 px-0 lg:px-2 xl:px-8 rounded-3xl hover:bg-white transition-colors duration-150 ${futura.className}`}>
+    <li className={`py-3 lg:py-3 px-0 lg:px-2 xl:px-8 rounded-3xl bg-stone-100 my-1 lg:my-2 hover:bg-white transition-colors duration-150 ${futura.className}`}>
       <div className="flex items-center space-x-4 lg:py-2">
         <div className={`p-2 xl:p-4 rounded-full border-2 border-stone-200 ${isPositive ? ' text-[#779649]' : ' text-[#e67762]'}`}>
           <IconComponent size={22} className="lg:w-[42px] lg:h-[42px]" />
@@ -203,13 +203,19 @@ const TransactionRow: React.FC<{ transaction: Transaction }> = ({ transaction })
 const SummaryCard: React.FC<{ item: SummaryItem }> = ({ item }) => {
   const IconComponent = item.icon;
   return (
-    <NextLink href={item.href} className={`rounded-xl p-6 shadow-md flex items-center space-x-4 hover:shadow-lg transition-shadow duration-300 hover:-translate-y-0.5 ${item.bgColor} ${item.textColor || 'text-white'}`}>
-        <div className={`p-3 rounded-lg text-white`}> {/* Ensured icon container is translucent white, icon color from parent */}
-            <IconComponent size={28} /> {/* Icon will inherit text color from parent, which is item.textColor or white */}
-        </div>
-        <div>
-            <h3 className="text-lg font-semibold">{item.title}</h3>
-            <p className="text-xl font-bold tracking-tight">{item.value}</p>
+    <NextLink href={item.href} className={``}>
+        <div className={`${futura.className} ${item.bgColor} ${item.textColor} rounded-xl py-2 lg:py-12 shadow-sm flex justify-center border-2 border-stone-200`}>
+            <div className='flex w-full px-6 xl:px-8 2xl:px-12'>
+                <div className='flex justify-center'>
+                    <IconComponent size={88} strokeWidth={1} className='border-2 border-gray-300 rounded-full p-1 md:p-4 mt-1 md:mt-0 mb-1 w-[46px] h-[46px] md:w-[68px] md:h-[68px] xl:w-[88px] xl:h-[88px]'/>
+                </div>
+                <div className='items-center flex ml-2 md:ml-4'>
+                    <div>
+                        <div className='text-lg lg:text-xl 2xl:text-2xl'>{item.title}</div>
+                        <div className='text-lg lg:text-2xl font-semibold'>{item.value}</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </NextLink>
   );
@@ -222,67 +228,68 @@ interface ActionButtonProps {
   label: string;
 }
 const ActionButton: React.FC<ActionButtonProps> = ({ href, icon: Icon, label }) => (
-  <NextLink href={href} className={`flex pl-6 pt-4 justify-between space-y-2 bg-white text-gray-700 border border-gray-200 
-                                       hover:text-gray-900 px-4 lg:pb-12 rounded-xl text-sm lg:text-2xl font-medium 
+  <NextLink href={href} className={`flex flex-col justify-between pl-6 pt-4 space-y-2 bg-[#e0e8ef] hover:bg-[#eaf2f9] text-gray-800 border border-gray-300 
+                                       hover:text-gray-950 px-4 lg:pb-2 rounded-xl text-sm lg:text-2xl
                                       transition-all duration-200 shadow-sm ${futura.className}`}>
-
-{/* flex-col items-center justify-center */}
-    
-    <span>{label}</span>
-    <Icon size={28} className="mb-1 text-gray-400" />
+      <div className='w-full h-full'>
+          <span>{label}</span>
+          <div className='flex justify-end'>
+              <Icon size={36} strokeWidth={1} className="mb-1 text-gray-500 " />
+          </div>
+      </div>
   </NextLink>
 );
 
-interface IconProps extends React.SVGProps<SVGSVGElement> {
-  size?: number;
-  strokeWidth?: number;
-}
+// interface IconProps extends React.SVGProps<SVGSVGElement> {
+//   size?: number;
+//   strokeWidth?: number;
+// }
 
-interface QuickActionProps {
-  title: string;
-  icon: React.FC<IconProps>;
-}
+// interface QuickActionProps {
+//   title: string;
+//   icon: React.FC<IconProps>;
+// }
 
-const quickActionData = [
-  {
-      title: 'Pay Bills',
-      icon: CreditCard,
-  },
-  {
-      title: 'Make a Transfer',
-      icon: ArrowUpCircle,
-  },
-  {
-      title: 'Interac e-Transfer®',
-      icon: Send,
-  },
-  {
-      title: 'View Statements',
-      icon: FileText,
-  }
-]
+// const quickActionData = [
+//   {
+//       title: 'Pay Bills',
+//       icon: CreditCard,
+//   },
+//   {
+//       title: 'Make a Transfer',
+//       icon: ArrowUpCircle,
+//   },
+//   {
+//       title: 'Interac e-Transfer®',
+//       icon: Send,
+//   },
+//   {
+//       title: 'View Statements',
+//       icon: FileText,
+//   }
+// ]
 
-const QuickAction: React.FC<QuickActionProps> = ({ title, icon: Icon }) => {
-  return (
-    <div className='lg:min-h-24 xl:min-h-32 flex bg-stone-50 hover:bg-white rounded-4xl mx-8 lg:mx-0 py-4 lg:py-8 px-6 lg:px-8 space-x-4 lg:space-x-4 shadow-lg items-center'>
-      <div className='w-1/4 xl:w-1/3 -ml-1 lg:ml-0 flex justify-end lg:justify-center'>
-        <div className='rounded-full h-14 w-14 2xl:h-22 2xl:w-22 border-2 border-stone-300 flex justify-center items-center'>
-          <Icon 
-            color="currentColor" 
-            size={32} 
-            strokeWidth={1} 
-            className="text-stone-600 2xl:w-[52px] 2xl:h-[52px] w-[32px] h-[32px]" 
-          />
-        </div>
-      </div>
-      <div className={`w-3/4 xl:w-2/3 ml-4 lg:-ml-2 2xl:-ml-0 flex items-center ${futura.className}`}>
-          <div className={`text-stone-700`}>
-              <div className='lg:font-semibold text-lg md:text-xl 2xl:text-2xl leading-5 mb-0.5 xl:leading-8 lg:mb-2'>{title}</div>
-          </div>
-      </div>
-    </div>
-  );
-};
+// const QuickAction: React.FC<QuickActionProps> = ({ title, icon: Icon }) => {
+//   return (
+//     <div className='lg:min-h-24 xl:min-h-32 flex bg-stone-200 hover:bg-white rounded-4xl mx-8 lg:mx-0 py-4 lg:py-8 px-6 lg:px-8 space-x-4 lg:space-x-4 shadow-lg items-center'>
+//       <div className='w-1/4 xl:w-1/3 -ml-1 lg:ml-0 flex justify-end lg:justify-center'>
+//         <div className='rounded-full h-14 w-14 2xl:h-22 2xl:w-22 border-2 border-stone-300 flex justify-center items-center'>
+//           <Icon 
+//             color="currentColor" 
+//             size={32} 
+//             strokeWidth={1} 
+//             className="text-stone-600 2xl:w-[52px] 2xl:h-[52px] w-[32px] h-[32px]" 
+//           />
+//         </div>
+//       </div>
+//       <div className={`w-3/4 xl:w-2/3 ml-4 lg:-ml-2 2xl:-ml-0 flex items-center ${futura.className}`}>
+//           <div className={`text-stone-700`}>
+//               <div className='lg:font-semibold text-lg md:text-xl 2xl:text-2xl leading-5 mb-0.5 xl:leading-8 lg:mb-2'>{title}</div>
+//           </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default function DashboardPage() {
   // const [accounts, setAccounts] = useState<Account[]>(accountsData);
@@ -290,7 +297,7 @@ export default function DashboardPage() {
   const accounts = accountsData;
   const transactions = transactionsData;
   
-  const [greeting, setGreeting] = useState<string>('');
+  const [greeting, setGreeting] = useState<string>('Good Day');
 
   // const topThreeCards = "w-56 h-28 lg:w-56 lg:h-28 xl:w-70 xl:h-28 rounded-t-2xl mx-auto"
 
@@ -318,49 +325,28 @@ export default function DashboardPage() {
 
       <div className={`min-h-screen bg-stone-50 ${inter.className}`}>
         <Header />
-        <main className="container mx-auto p-4 sm:p-6 lg:p-8">
-          <div className="mb-6 lg:mb-10">
-            <h1 className={`text-xl lg:text-4xl font-bold text-gray-800 ${lora.className}`}>{greeting}, User!</h1>
-            {/* <p className="text-gray-600 mt-1">Here's your financial snapshot.</p> */}
+        <main className="container mx-auto p-4 px-6 lg:px-8 pt-6 lg:pt-8">
+          <div className="mb-6 md:mb-12">
+            <h1 className={`text-xl lg:text-4xl font-bold text-gray-800 ${lora.className}`}>{greeting}!</h1>
           </div>
 
           {/* AccountCard SECTION */}
-          <section id="accounts-overview" className="hidden mb-12">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className={`text-2xl lg:text-3xl lg:font-bold font-semibold text-gray-700 ${lora.className}`}>Your Accounts</h2>
+          <section id="accounts-overview" className="mb-6 md:mb-12">
+            <div className="flex justify-between items-center mb-3 md:mb-6">
+              <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Your Accounts</h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-3 relative">
               {accounts.map((account, index) => (
                 <AccountCard key={account.id} account={account} index={index} />
               ))}
             </div>
 
           </section>
- 
-          <section className='hidden bg-[#eae6da] w-full'>
-              <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto h-full'>
-                  <div className='h-full lg:py-6 lg:px-6 w-full flex justify-center items-center'>
-                      <div className='h-full w-full '>
-                          <div className={`pt-2 pb-4 px-6 lg:pb-0 lg:pt-2 text-2xl lg:text-4xl text-center flex items-center justify-center xl:justify-start ${lora.className}`}>Quick Actions</div>
-                          <div className='lg:mt-8 mb-12 lg:mb-0 w-full grid grid-cols-1 gap-4 my-6 lg:my-0 md:grid-cols-2 xl:grid-cols-4 lg:gap-6 md:px-4'>
-                              {quickActionData.map((item, index) => (
-                                  <div key={index} > 
-                                      <QuickAction 
-                                          title={item.title}
-                                          icon={item.icon}
-                                      />
-                                  </div>
-                              ))}
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </section>
 
-          <section id="quick-actions" className="hidden mb-12">
-             <h2 className={`text-2xl lg:text-3xl font-semibold text-gray-700 mb-5 ${lora.className }`}>Quick Actions</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <section id="quick-actions" className="mb-6 md:mb-12">
+            <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Quick Actions</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-6 pt-3 lg:pt-6">
                 <ActionButton href="/banking/pay-bills" icon={CreditCard} label="Pay Bills" />
                 <ActionButton href="/banking/transfer" icon={ArrowUpCircle} label="Make a Transfer" />
                 <ActionButton href="/banking/etransfer" icon={Send} label="Interac e-Transfer®" />
@@ -369,24 +355,25 @@ export default function DashboardPage() {
           </section>
 
           {summaryItemsData.length > 0 && (
-            <section id="summary-overview" className="hidden mb-12">
-              <h2 className={`text-2xl font-semibold text-gray-700 mb-6 ${lora.className}`}>Other Holdings & Services</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {summaryItemsData.map((item, index) => (
-                  <SummaryCard key={index} item={item} />
-                ))}
-              </div>
+            <section id="summary-overview" className="mb-6 md:mb-12">
+                <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Holdings & Services</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 py-3 lg:py-6">
+                    {summaryItemsData.map((item, index) => (
+                      <SummaryCard key={index} item={item} />
+                    ))}
+                </div>
             </section>
           )}
 
-          <section id="recent-transactions">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Recent Transactions</h2>
+          <section id="recent-transactions" className=''>
+          {/* mb-6 md:mb-12 */}
+            <div className="flex justify-between items-center ">
+              <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className} `}>Recent Transactions</h2>
               <NextLink href="/banking/all-transactions" className={`flex items-center text-sm lg:text-xl font-medium text-gray-600 hover:text-gray-800 ${futura.className}`}>
                 View All Transactions <ChevronDown size={18} className="ml-1" />
               </NextLink>
             </div>
-            <div className="bg-stone-50 shadow-md rounded-xl p-3 lg:p-6 border-stone-200 border-2 sm:p-6">
+            <div className="mt-3 lg:mt-6 shadow-md rounded-xl p-3 lg:p-6 border-stone-200 border-2">
               {transactions.length > 0 ? (
                 <ul className="divide-y divide-gray-100">
                   {allTransactionsWithAccountName.slice(0, 5).map(transaction => ( // Show top 5
@@ -399,27 +386,19 @@ export default function DashboardPage() {
             </div>
           </section>
 
-        <aside className="hidden mt-16">
-            <h2 className="text-2xl font-semibold text-gray-700 mb-6">Need Help?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <NextLink href="/banking/profile-settings" className="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                    <User className="text-indigo-600 mb-3" size={28}/>
-                    <h3 className="font-semibold text-gray-800 mb-1">Profile & Settings</h3>
-                    <p className="text-sm text-gray-600">Manage your personal information and security settings.</p>
-                </NextLink>
-                <NextLink href="/banking/faq" className="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                    <LifeBuoy className="text-indigo-600 mb-3" size={28}/>
-                    <h3 className="font-semibold text-gray-800 mb-1">FAQs & Support</h3>
-                    <p className="text-sm text-gray-600">Find answers to common questions or contact support.</p>
-                </NextLink>
-                <NextLink href="/banking/tools" className="block p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                    <Settings className="text-indigo-600 mb-3" size={28}/>
-                    <h3 className="font-semibold text-gray-800 mb-1">Financial Tools</h3>
-                    <p className="text-sm text-gray-600">Access budgeting calculators and planning resources.</p>
-                </NextLink>
+          {/* Help SECTION */}
+          <section id="help-overview" className="mb-6 md:mb-12">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 mt-4 lg:mt-12 ${futura.className}`}>Need Help?</h2>
             </div>
-        </aside>
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 relative">
+              {helpData.map((item, index) => (
+                <HelpCard key={item.id} item={item} index={index} />
+              ))}
+            </div>
+
+          </section>
 
         </main>
       </div>
