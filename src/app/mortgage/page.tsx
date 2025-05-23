@@ -104,7 +104,7 @@ const generatePaymentHistory = (
 const threeYearsAgo = new Date();
 threeYearsAgo.setFullYear(threeYearsAgo.getFullYear() - 3);
 // Start date for generating history (e.g., 3 years before current next payment date)
-const historyStartDate = new Date(new Date(mortgageData.nextPaymentDate).setMonth(new Date(mortgageData.nextPaymentDate).getMonth() - mortgageData.paymentsMade));
+// const historyStartDate = new Date(new Date(mortgageData.nextPaymentDate).setMonth(new Date(mortgageData.nextPaymentDate).getMonth() - mortgageData.paymentsMade));
 
 const paymentHistoryData: PaymentHistoryItem[] = generatePaymentHistory(
     mortgageData.originalAmount,
@@ -114,7 +114,7 @@ const paymentHistoryData: PaymentHistoryItem[] = generatePaymentHistory(
     new Date('2025-05-01') // A fixed date to ensure consistent history generation
 );
 
-const DetailItem: React.FC<{ icon: React.ElementType; label: string; value: string | number; accent?: boolean }> = ({ icon: Icon, label, value, accent }) => (
+const DetailItem: React.FC<{ icon: React.ElementType; label: string; value: string | number; accent?: boolean }> = ({ icon: Icon, label, value }) => (
   <div className={`flex p-3 rounded-lg items-center space-x-4 lg:py-2 ${futura.className}`}>
     <div className={`p-2 xl:p-4 rounded-full border-2 border-stone-200 text-[#779649]`}>
       <Icon size={22} strokeWidth={1} className="lg:w-[42px] lg:h-[42px]" />

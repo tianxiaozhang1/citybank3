@@ -125,7 +125,7 @@ const transactionsData: Transaction[] = [
 ];
 
 // Account Card Component
-const AccountCard: React.FC<{ account: Account; index: number }> = ({ account, index }) => {
+const AccountCard: React.FC<{ account: Account; index: number }> = ({ account }) => {
   const IconComponent = account.icon;
   return (
     <NextLink href={account.href} className={``}>
@@ -152,8 +152,8 @@ const helpData: HelpItem[] = [
   { id: '3', name: 'Financial Tools', href: '/mortgage', text: 'Access budgeting calculators and planning resources.', bgColor: 'bg-[#e4e2dd]', textColor: 'text-stone-600', icon: Settings },
 ];
 
-const HelpCard: React.FC<{ item: HelpItem; index: number }> = ({ item, index }) => {
-  const IconComponent = item.icon;
+const HelpCard: React.FC<{ item: HelpItem; index: number }> = ({ item }) => {
+  // const IconComponent = item.icon;
   return (
     <NextLink href={item.href} className={``}>
         <div className={`${futura.className} ${item.bgColor} rounded-xl py-2 lg:py-16 shadow-md flex justify-center text-gray-700`}>
