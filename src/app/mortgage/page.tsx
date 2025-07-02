@@ -11,7 +11,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import NextLink from 'next/link';
 
-// const themeColor = "#6d7844"; // Olive Green
+const themeColor = "#6d7844"; // Olive Green
 // const themeTextColor = "text-white"; // For buttons with themeColor bg
 // const themeAccentTextColor = "text-[#586037]"; // Darker shade of theme for text
 
@@ -115,13 +115,14 @@ const paymentHistoryData: PaymentHistoryItem[] = generatePaymentHistory(
 );
 
 const DetailItem: React.FC<{ icon: React.ElementType; label: string; value: string | number; accent?: boolean }> = ({ icon: Icon, label, value }) => (
-  <div className={`flex p-3 rounded-lg items-center space-x-4 lg:py-2 ${futura.className}`}>
-    <div className={`p-2 xl:p-4 rounded-full border-2 border-stone-200 text-[#779649]`}>
+  <div className={`flex p-3 rounded-3xl items-center space-x-4 lg:py-2  ${futura.className}`}>
+    <div className={`p-2 xl:p-4 rounded-full border-2 border-gray-400 text-gray-700 `}>
+    {/* [#779649] */}
       <Icon size={22} strokeWidth={1} className="lg:w-[42px] lg:h-[42px]" />
     </div>
     <div className="flex-1 min-w-0 px-2">
-      <p className="text-sm lg:text-2xl font-semibold text-gray-600 truncate">{label}</p>
-      <p className="text-xs lg:text-xl text-gray-500">
+      <p className="text-sm lg:text-2xl font-semibold text-gray-700 truncate">{label}</p>
+      <p className="text-xs lg:text-xl text-gray-600">
         {value}
       </p>
     </div>
@@ -138,23 +139,27 @@ interface ActionItem {
 }
 
 const actionItemsData: ActionItem[] = [
-  { title: 'Make an Extra Payment', icon: PlusCircle, bgColor: 'bg-[#6d7844]', textColor: 'text-white', href: '/mortgage' },
-  { title: 'View Mortgage Statement', icon: FileText, bgColor: 'bg-[#6d7844]', textColor: 'text-white', href: '/investment' },
-  { title: 'Renewal Information', icon: RefreshCw, bgColor: 'bg-[#6d7844]', textColor: 'text-white', href: '/insurance' },
+  { title: 'Make an Extra Payment', icon: PlusCircle, bgColor: 'bg-[#6C8650]', textColor: 'text-white', href: '/mortgage' },
+  { title: 'View Mortgage Statement', icon: FileText, bgColor: 'bg-[#6C8650]', textColor: 'text-white', href: '/investment' },
+  { title: 'Renewal Information', icon: RefreshCw, bgColor: 'bg-[#6C8650]', textColor: 'text-white', href: '/insurance' },
+  // darker [#6d7844]
 ];
 
 const ActionCard: React.FC<{ item: ActionItem }> = ({ item }) => {
   const IconComponent = item.icon;
   return (
     <NextLink href={item.href} className={``}>
-        <div className={`${futura.className} ${item.bgColor} ${item.textColor} rounded-xl py-2 lg:py-8 shadow-sm flex justify-center border-2 border-stone-200`}>
+        <div className={`${futura.className} ${item.bgColor} ${item.textColor} rounded-xl py-2 lg:py-8 shadow-md flex justify-center`}>
+        {/* [#6d7844] */}
             <div className='flex w-full px-6 xl:px-8 2xl:px-12'>
                 <div className='flex justify-center'>
-                    <IconComponent size={88} strokeWidth={1} className='border-2 border-gray-300 rounded-full p-1 md:p-4 mt-1 md:mt-0 mb-1 w-[46px] h-[46px] md:w-[68px] md:h-[68px] xl:w-[88px] xl:h-[88px]'/>
+                    <IconComponent size={88} strokeWidth={1} className='border-2 border-slate-300 rounded-full text-slate-50
+                                                                           p-1 md:p-4 mt-1 md:mt-0 mb-1 
+                                                                           w-[46px] h-[46px] md:w-[68px] md:h-[68px] xl:w-[88px] xl:h-[88px]'/>
                 </div>
                 <div className='items-center flex ml-2 md:ml-4'>
                     <div>
-                        <div className='text-lg lg:text-xl 2xl:text-2xl'>{item.title}</div>
+                        <div className='text-lg lg:text-xl 2xl:text-2xl '>{item.title}</div>
                         {/* <div className='text-lg lg:text-2xl font-semibold'>{item.value}</div> */}
                     </div>
                 </div>
@@ -210,7 +215,7 @@ const MortgagePage = () => {
       </Head>
       <div className={`min-h-screen bg-stone-50 ${inter.className}`}>
         <Header />
-        <main className="container mx-auto p-4 px-6 lg:px-8 pt-6 lg:pt-8">
+        <main className="container mx-auto p-4 px-6 lg:px-8 pt-6 lg:pt-8 ">
           <div className="mb-6 md:mb-12 flex justify-between items-center ">
             <div>
               <h1 className={`text-xl lg:text-4xl font-bold text-gray-800 ${lora.className}`}>Mortgage Details</h1>
@@ -224,8 +229,10 @@ const MortgagePage = () => {
           {/* Summary Section */}
           <section id="summary-overview" className="mb-6 md:mb-12 ">
             <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 mb-4 ${futura.className}`}>Mortgage Overview</h2>
-            <div className="bg-white shadow-md rounded-xl p-3 lg:p-6 border-stone-200 border-2 py-3 lg:py-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            <div className={`bg-[#A8B78C] shadow-md rounded-3xl p-3 lg:p-6 border-stone-200 border-2 py-3 lg:py-6`}>
+            {/* [#e5ecc7] */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 bg-[#eef1e8] border-2 border-white px-2 py-4 rounded-2xl shadow-md">
+                {/* [#f5f7e9] */}
                 <DetailItem icon={Home} label="Current Balance" value={formatCurrency(mortgageData.currentBalance)} accent/>
                 <DetailItem icon={DollarSign} label="Next Payment" value={`${formatCurrency(mortgageData.paymentAmount)} on ${new Date(mortgageData.nextPaymentDate).toLocaleDateString('en-CA')}`} />
                 <DetailItem icon={Percent} label="Interest Rate" value={`${mortgageData.interestRate}%`} />
@@ -233,12 +240,13 @@ const MortgagePage = () => {
                 <DetailItem icon={RefreshCw} label="Payment Frequency" value={mortgageData.paymentFrequency} />
                 <DetailItem icon={TrendingUp} label="Original Loan Amount" value={formatCurrency(mortgageData.originalAmount)} />
                 </div>
+                {/* <div className='h-24 w-1/4 bg-[#f5f7e9] rounded-3xl border-2 border-white'></div> */}
             </div>
           </section>
 
           {/* Actions Section */}
           {actionItemsData.length > 0 && (
-            <section id="summary-overview" className="mb-6 md:mb-12 ">
+            <section id="summary-overview" className="mb-0 md:mb-6 lg:mb-10">
                 <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Manage Your Mortgage</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3 lg:pt-6">
                     {actionItemsData.map((item, index) => (
@@ -247,82 +255,87 @@ const MortgagePage = () => {
                 </div>
             </section>
           )}
-
-          {/* Payment History Section */}
-          <div className="flex justify-between items-center mb-3 lg:mb-6 ">
-            <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Payment History</h2>
-            {/* <button
-              onClick={() => setShowHistory(!showHistory)}
-              className={`flex items-center text-sm lg:text-2xl font-medium text-gray-600 hover:text-gray-800 ${futura.className}`}
-            >
-              {showHistory ? 'Hide History' : `Show Last ${paymentHistoryData.length} Payments`} <ChevronDown size={18} className="ml-1" />
-            </button> */}
-            <div className="flex items-center">
-              {currentPage > 0 && (
-                <button
-                  onClick={handlePrevPage}
-                  className={`flex items-center text-sm lg:text-xl font-medium text-gray-600 hover:text-gray-800 cursor-pointer ${futura.className} mr-4`}
-                >
-                  <ChevronLeft size={18} className="mr-1" /> Previous
-                </button>
-              )}
-              {currentPage < totalPages && (
-                <button
-                  onClick={handleShowMoreClick}
-                  className={`flex items-center text-sm lg:text-xl font-medium text-gray-600 hover:text-gray-800 cursor-pointer ${futura.className}`}
-                >
-                  {currentPage === 0 ? 'Show More' : 'Next Year'} <ChevronDown size={18} className="ml-1" />
-                </button>
-              )}
-                {currentPage > 0 && (
-                <button
-                  onClick={() => setCurrentPage(0)}
-                  className={`flex items-center text-sm lg:text-xl font-medium text-gray-600 hover:text-gray-800 cursor-pointer ${futura.className} ml-4`}
-                >
-                  Hide Full History
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* bg-white */}
-          <section className="mb-12 p-4 lg:p-6 rounded-xl shadow-lg border-stone-200 border-2 ">
-            <div className="flex justify-between items-center mb-4">
-              {/* <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Payment History</h2> */}
-              
-            </div>
-            {showHistory && (
-              <div className="overflow-x-auto lg:overflow-x-visible">
-                <div className={`min-w-full inline-block align-middle ${futura.className}`}>
-                  <table className="min-w-full divide-y divide-gray-200">
-                    <thead className="bg-gray-50 rounded-t-xl">
-                      <tr>
-                        <th scope="col" className="px-6 py-4 xl:py-6 text-left text-sm lg:text-2xl font-medium text-gray-500 tracking-wider">Date</th>
-                        <th scope="col" className="px-6 py-4 xl:py-6 text-left text-sm lg:text-2xl font-medium text-gray-500 tracking-wider">Principal Paid</th>
-                        <th scope="col" className="px-6 py-4 xl:py-6 text-left text-sm lg:text-2xl font-medium text-gray-500 tracking-wider">Interest Paid</th>
-                        <th scope="col" className="px-6 py-4 xl:py-6 text-left text-sm lg:text-2xl font-medium text-gray-500 tracking-wider">Total Payment</th>
-                        <th scope="col" className="px-6 py-4 xl:py-6 text-left text-sm lg:text-2xl font-medium text-gray-500 tracking-wider">Remaining Balance</th>
-                      </tr>
-                    </thead>
-                    <tbody className={`bg-white divide-y divide-gray-200`}>
-                      {paginatedHistory().map((payment) => (
-                        <tr key={payment.id} className="hover:bg-gray-50">
-                          <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl text-gray-600">{new Date(payment.date).toLocaleDateString('en-CA')}</td>
-                          <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl text-gray-600">{formatCurrency(payment.principal)}</td>
-                          <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl text-gray-600">{formatCurrency(payment.interest)}</td>
-                          <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl font-semibold text-gray-600">{formatCurrency(payment.total)}</td>
-                          <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl text-gray-600">{formatCurrency(payment.balance)}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-            {!showHistory && <p className={`text-center text-gray-500 py-4 text-sm lg:text-2xl ${futura.className}`}>Click to expand payment history.</p>}
-          </section>
-
         </main>
+
+        <div className='bg-[#eef1e8]'>
+        {/* bg-[#e5ecc7] */}
+            <div className='container mx-auto p-4 px-6 lg:px-8 pt-6 lg:pt-12 pb-2 lg:pb-6'>
+                {/* Payment History Section */}
+                <div className="flex justify-between items-center mb-3 ">
+                {/* lg:mb-6  */}
+                  <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Payment History</h2>
+                  {/* <button
+                    onClick={() => setShowHistory(!showHistory)}
+                    className={`flex items-center text-sm lg:text-2xl font-medium text-gray-600 hover:text-gray-800 ${futura.className}`}
+                  >
+                    {showHistory ? 'Hide History' : `Show Last ${paymentHistoryData.length} Payments`} <ChevronDown size={18} className="ml-1" />
+                  </button> */}
+                  <div className="flex items-center">
+                    {currentPage > 0 && (
+                      <button
+                        onClick={handlePrevPage}
+                        className={`flex items-center text-sm lg:text-xl font-medium text-gray-600 hover:text-gray-800 cursor-pointer ${futura.className} mr-4`}
+                      >
+                        <ChevronLeft size={18} className="mr-1" /> Previous
+                      </button>
+                    )}
+                    {currentPage < totalPages && (
+                      <button
+                        onClick={handleShowMoreClick}
+                        className={`flex items-center text-sm lg:text-xl font-medium text-gray-600 hover:text-gray-800 cursor-pointer ${futura.className}`}
+                      >
+                        {currentPage === 0 ? 'Show More' : 'Next Year'} <ChevronDown size={18} className="ml-1" />
+                      </button>
+                    )}
+                      {currentPage > 0 && (
+                      <button
+                        onClick={() => setCurrentPage(0)}
+                        className={`flex items-center text-sm lg:text-xl font-medium text-gray-600 hover:text-gray-800 cursor-pointer ${futura.className} ml-4`}
+                      >
+                        Hide Full History
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {/* bg-white */}
+                <section className="mb-12">
+                  <div className="flex justify-between items-center mb-4">
+                    {/* <h2 className={`lg:text-lg xl:text-3xl font-semibold text-gray-700 ${futura.className}`}>Payment History</h2> */}
+                    
+                  </div>
+                  {showHistory && (
+                    <div className="overflow-x-auto lg:overflow-x-visible shadow-md ">
+                      <div className={`min-w-full inline-block align-middle ${futura.className}`}>
+                        <table className="min-w-full divide-y divide-gray-200">
+                          <thead className="bg-gray-50 rounded-t-xl">
+                            <tr>
+                              <th scope="col" className="px-6 py-4 xl:py-8 text-left text-sm lg:text-2xl font-medium text-gray-800 tracking-wider">Date</th>
+                              <th scope="col" className="px-6 py-4 xl:py-8 text-left text-sm lg:text-2xl font-medium text-gray-800 tracking-wider">Principal Paid</th>
+                              <th scope="col" className="px-6 py-4 xl:py-8 text-left text-sm lg:text-2xl font-medium text-gray-800 tracking-wider">Interest Paid</th>
+                              <th scope="col" className="px-6 py-4 xl:py-8 text-left text-sm lg:text-2xl font-medium text-gray-800 tracking-wider">Total Payment</th>
+                              <th scope="col" className="px-6 py-4 xl:py-8 text-left text-sm lg:text-2xl font-medium text-gray-800 tracking-wider">Remaining Balance</th>
+                            </tr>
+                          </thead>
+                          <tbody className={`bg-white divide-y divide-gray-200`}>
+                            {paginatedHistory().map((payment) => (
+                              <tr key={payment.id} className="hover:bg-gray-50">
+                                <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl text-gray-600">{new Date(payment.date).toLocaleDateString('en-CA')}</td>
+                                <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl text-gray-600">{formatCurrency(payment.principal)}</td>
+                                <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl text-gray-600">{formatCurrency(payment.interest)}</td>
+                                <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl font-semibold text-gray-600">{formatCurrency(payment.total)}</td>
+                                <td className="px-6 py-4 xl:py-6 lg:py-6 whitespace-nowrap text-sm lg:text-2xl text-gray-600">{formatCurrency(payment.balance)}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  )}
+                  {!showHistory && <p className={`text-center text-gray-500 py-4 text-sm lg:text-2xl ${futura.className}`}>Click to expand payment history.</p>}
+                </section>
+            </div>
+        </div>
         <Footer />
       </div>
     </>

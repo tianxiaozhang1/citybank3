@@ -108,8 +108,8 @@ const accountsData: Account[] = [
 ];
 
 const summaryItemsData: SummaryItem[] = [
-  { title: 'Mortgage Balance', value: formatCurrency(348500, 'CAD'), icon: Home, bgColor: 'bg-[#6d7844]', textColor: 'text-white', href: '/mortgage' },
-  { title: 'Portfolio Value', value: formatCurrency(47300.50, 'CAD'), icon: ChartSpline, bgColor: 'bg-[#90826b]', textColor: 'text-white', href: '/investment' },
+  { title: 'Mortgage Balance', value: formatCurrency(348500, 'CAD'), icon: Home, bgColor: 'bg-[#6C8650]', textColor: 'text-white', href: '/mortgage' },
+  { title: 'Portfolio Value', value: formatCurrency(47300.50, 'CAD'), icon: ChartSpline, bgColor: 'bg-[#4f6cb0]', textColor: 'text-white', href: '/investment' },
   { title: 'Insurance (Home & Auto)', value: 'View Policies', icon: FileText, bgColor: 'bg-[#7d948c]', textColor: 'text-white', href: '/insurance' },
 ];
 
@@ -229,13 +229,13 @@ interface ActionButtonProps {
   label: string;
 }
 const ActionButton: React.FC<ActionButtonProps> = ({ href, icon: Icon, label }) => (
-  <NextLink href={href} className={`flex flex-col justify-between pl-6 pt-4 space-y-2 bg-[#e0e8ef] hover:bg-[#eaf2f9] text-gray-800 border border-gray-300 
+  <NextLink href={href} className={`flex flex-col justify-between pl-6 pt-4 space-y-2 bg-[#7d948c] hover:bg-[#eaf2f9] text-gray-50 border border-gray-300 
                                        hover:text-gray-950 px-4 lg:pb-2 rounded-xl text-sm lg:text-2xl
                                       transition-all duration-200 shadow-sm ${futura.className}`}>
       <div className='w-full h-full'>
           <span>{label}</span>
           <div className='flex justify-end'>
-              <Icon size={36} strokeWidth={1} className="mb-1 text-gray-500 " />
+              <Icon size={36} strokeWidth={1} className="mb-1 text-gray-50 " />
           </div>
       </div>
   </NextLink>
