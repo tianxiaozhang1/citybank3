@@ -29,7 +29,7 @@ function CreditCardPage() {
                     <div className='border-2 border-slate-400 bg-gradient-to-b from-stone-800 to-stone-950 rounded-3xl overflow-hidden'>
                         <div className='p-12 lg:p-16'>
                             <div className={`${lora.className} text-3xl lg:text-6xl mb-2`}>No annual fee</div>
-                            <div className={`${futura.className} text-lg lg:text-2xl`}>We'll waive your fees (charged monthly) if you've got $100K+ with us, or when you switch a qualifying paycheque deposit to City Bank.</div>
+                            <div className={`${futura.className} text-lg lg:text-2xl`}>We&apos;ll waive your fees (charged monthly) if you&apos;ve got $100K+ with us, or when you switch a qualifying paycheque deposit to City Bank.</div>
                         </div>
 
                         <div className='lg:h-0 grid grid-cols-12 items-end'>

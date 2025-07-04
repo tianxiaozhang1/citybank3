@@ -2,9 +2,9 @@
 // import Head from 'next/head';
 import Image from 'next/image';
 
-import React, { useRef } from 'react';
-// , useState, useEffect
-import { useInView } from 'framer-motion'; // Import motion and useInView
+import React from 'react';
+// , useState, useEffect , { useRef }
+// import { useInView } from 'framer-motion'; // Import motion and useInView
 // motion, 
 
 import AirCanadaLogo from '../../../public/png/aircanada.png'
@@ -43,7 +43,7 @@ import Presto from '../../../public/png/Presto_Card.svg'
 import { CheckmarkDrawingAnimationOnScroll } from '../../components/Wallet/CheckmarkDrawingAnimation'
 
 // import LogoBox from '../../components//Wallet/LogoBox'; // Adjust path as needed
-import { logoData } from '../../data/logos'; // Adjust path as needed
+// import { logoData } from '../../data/logos'; // Adjust path as needed
 
 import LoyaltyRewards from '../../components/Wallet/LoyaltyRewards'
 import BuyItAll from '../../components/Wallet/BuyItAll'
