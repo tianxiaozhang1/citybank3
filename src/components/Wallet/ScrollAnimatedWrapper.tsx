@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react'; //, useEffect
 import { motion, useInView } from 'framer-motion';
 
 // Define the props for the ScrollAnimatedWrapper component

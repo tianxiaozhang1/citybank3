@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion"
-import { useRef, useEffect } from "react" // Import useRef and useEffect
+import { useRef } from "react" // , useEffect
 
 export function CheckmarkDrawingAnimationOnScroll() {
   const pathLength = 100; // Adjust this based on your actual SVG path length

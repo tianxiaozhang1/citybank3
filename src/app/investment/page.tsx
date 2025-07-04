@@ -1,7 +1,8 @@
 "use client";
 import Head from 'next/head';
 import React, { useState, useEffect, useMemo } from 'react';
-import { DollarSign, ArrowUpRight, ArrowDownRight, PlusCircle, MinusCircle, BarChart2, ArrowUpDown, CirclePlus, CircleMinus } from 'lucide-react';
+import { DollarSign, ArrowUpRight, ArrowDownRight, PlusCircle, MinusCircle, BarChart2, CirclePlus, CircleMinus } from 'lucide-react';
+// , ArrowUpDown
 import {
   ResponsiveContainer,
   LineChart,
@@ -9,7 +10,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  AreaChart, Area
+  // AreaChart, Area
   // CartesianGrid // Removed as per request for sleek design
 } from 'recharts';
 // , Eye, FileText, RefreshCw

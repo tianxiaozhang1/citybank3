@@ -3,11 +3,12 @@ import Card from '../UI/Card';
 import ChartPlaceholder from '../UI/ChartPlaceholder';
 import { PortfolioData } from '../../lib/investTypes';
 
-interface PerformanceChartProps {
-  data: PortfolioData['performanceHistory'];
-}
+// interface PerformanceChartProps {
+//   // data: PortfolioData['performanceHistory'];
+// }
 
-export default function PerformanceChart({ data }: PerformanceChartProps) {
+export default function PerformanceChart() {
+  // { data }: PerformanceChartProps
   // In a real application, you would use Chart.js, Recharts, or Nivo here for a Line Chart.
   // Example data transformation for a Line Chart:
   // const chartLabels = data.map(d => new Date(d.date).toLocaleDateString());

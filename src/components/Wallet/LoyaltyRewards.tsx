@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion'; // Import motion and useInView
+import React, { useRef } from 'react'; //, useState, useEffect 
+import { useInView } from 'framer-motion'; // Import motion and useInView motion, 
 
 import LogoBox from './LogoBox'; 
 import { logoData } from '../../data/logos';

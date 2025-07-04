@@ -1,14 +1,15 @@
 "use client";
-import Head from 'next/head';
+// import Head from 'next/head';
 
-import { ChevronDown, Banknote, CreditCard, DollarSign, ArrowDownCircle, ArrowUpCircle, Home, Briefcase, ShoppingBag,
-         MoreHorizontal, Car, Send, FileText, User, Settings, LifeBuoy, ChartSpline } from 'lucide-react';
+// import { ChevronDown, Banknote, CreditCard, DollarSign, ArrowDownCircle, ArrowUpCircle, Home, Briefcase, ShoppingBag,
+//          MoreHorizontal, Car, Send, FileText, User, Settings, LifeBuoy, ChartSpline } from 'lucide-react';
 // FilePlus, LogOut, Bell,  TrendingUp, House
-import React, { useState, useEffect } from 'react';
-import NextLink from 'next/link'; // Renamed to avoid conflict if Link is imported from lucide or elsewhere
+import React from 'react';
+// , { useState, useEffect }
+// import NextLink from 'next/link'; // Renamed to avoid conflict if Link is imported from lucide or elsewhere
 
-import { inter, lora } from '../../fonts';
-// , aldrich, pt_sans_narrow
+import { lora } from '../../fonts';
+// , aldrich, pt_sans_narrow inter, 
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
 // const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
@@ -16,7 +17,7 @@ const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
 // import pixelMap from '../../images/pixelmap2.png'
 
 import Header from '../../components/Header'; 
-import Footer from '../../components/Footer'; 
+// import Footer from '../../components/Footer'; 
 
 function CreditCardPage() {
     return (

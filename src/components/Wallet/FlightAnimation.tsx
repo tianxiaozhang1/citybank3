@@ -3,7 +3,8 @@
 
 import React, { useEffect, useRef, useState } from 'react'; // Import useState
 import Image from 'next/image';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
+// , useAnimation
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
@@ -25,7 +26,7 @@ const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
 const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
 
 const FlightAnimation = () => {
-  const controls = useAnimation();
+  // const controls = useAnimation();
 
   // >>>>>> REFS FOR ELEMENTS <<<<<<
   const planeRef = useRef<HTMLDivElement>(null);
@@ -59,7 +60,7 @@ const FlightAnimation = () => {
     }
 
     const rightPath = rightCurveSvgRef.current.querySelector('path');
-    const leftPath = leftCurveSvgRef.current.querySelector('path');
+    // const leftPath = leftCurveSvgRef.current.querySelector('path');
 
     if (!rightPath) {
       console.warn("Right SVG path not found within the SVG ref. Animation might not start correctly.");

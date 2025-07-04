@@ -1,9 +1,11 @@
 "use client";
-import Head from 'next/head';
+// import Head from 'next/head';
 import Image from 'next/image';
 
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion'; // Import motion and useInView
+import React, { useRef } from 'react';
+// , useState, useEffect
+import { useInView } from 'framer-motion'; // Import motion and useInView
+// motion, 
 
 import AirCanadaLogo from '../../../public/png/aircanada.png'
 import AirCanadaPlane from '../../../public/png/plane.svg'
@@ -12,13 +14,13 @@ import AirCanadaQRCode from '../../../public/png/qrcode.png'
 // import CurvedDottedLine  from './CurvedDottedLineOLD'
 import CurvedDottedLine from './CurvedDottedLineOLD'
 
-import { ChevronDown, Banknote, CreditCard, DollarSign, ArrowDownCircle, ArrowUpCircle, Home, Briefcase, ShoppingBag,
-         MoreHorizontal, Car, Send, FileText, User, Settings, LifeBuoy, ChartSpline, Landmark, Star, CircleCheck, 
-         CircleCheckBig, Clock9, Check, CircleArrowRight} from 'lucide-react';
+import { Landmark, Star, CircleCheckBig, Clock9, CircleArrowRight } from 'lucide-react';
+        //  ChevronDown, Banknote, CreditCard, DollarSign, ArrowDownCircle, ArrowUpCircle, Home, Briefcase, ShoppingBag,
+        //  MoreHorizontal, Car, Send, FileText, User, Settings, LifeBuoy, ChartSpline, , Check, CircleCheck
 // FilePlus, LogOut, Bell,  TrendingUp, House
-import NextLink from 'next/link'; // Renamed to avoid conflict if Link is imported from lucide or elsewhere
+// import NextLink from 'next/link'; // Renamed to avoid conflict if Link is imported from lucide or elsewhere
 
-import { inter, lora } from '../../fonts';
+// import { inter, lora } from '../../fonts';
 // , aldrich, pt_sans_narrow
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
@@ -27,7 +29,7 @@ const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' }
 // import pixelMap from '../../images/pixelmap2.png'
 
 import Header from '../../components/Header'; 
-import Footer from '../../components/Footer'; 
+// import Footer from '../../components/Footer'; 
 
 import FlightAnimation from '../../components/Wallet/FlightAnimation'
 import { ScrollReveal } from '../../components/Wallet/ScrollReveal'

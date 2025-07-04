@@ -11,7 +11,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import NextLink from 'next/link';
 
-const themeColor = "#6d7844"; // Olive Green
+// const themeColor = "#6d7844"; // Olive Green
 // const themeTextColor = "text-white"; // For buttons with themeColor bg
 // const themeAccentTextColor = "text-[#586037]"; // Darker shade of theme for text
 

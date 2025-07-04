@@ -27,7 +27,8 @@ export default function Table<T>({ data, columns }: TableProps<T>) {
             <tr key={rowIndex}>
               {columns.map((col, colIndex) => (
                 <td
-                  key={String(col.key)}
+                  key={String(colIndex)}
+                  // col.key
                   className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100"
                 >
                   {col.render ? col.render(item) : (item[col.key] as React.ReactNode)}

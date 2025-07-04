@@ -6,10 +6,11 @@ interface OverviewCardProps {
   value: number;
   change?: number;
   changeType?: 'positive' | 'negative' | 'neutral';
-  currency?: string;
+  // currency?: string;
 }
 
-export default function OverviewCard({ title, value, change, changeType = 'neutral', currency = '$' }: OverviewCardProps) {
+export default function OverviewCard({ title, value, change, changeType = 'neutral'}: OverviewCardProps) {
+  // , currency = '$' 
   const changeColor =
     changeType === 'positive'
       ? 'text-green-600 dark:text-green-400'
