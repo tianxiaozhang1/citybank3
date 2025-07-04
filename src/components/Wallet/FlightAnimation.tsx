@@ -43,9 +43,9 @@ const FlightAnimation = () => {
     // No specific absolute points needed here as it follows the SVG path
 
     // Phase 3 (Left Side - now using absolute points)
-    leftStart: { x: -30, y: 316, rotate: -40 },  // Start: Where the green dot is on the left
-    leftMid:   { x: 180, y: 150, rotate: 0 },    // Mid-point: The "corner" or bend in your two linear segments
-    leftEnd:   { x: 256, y: 150, rotate: 0 },    // End: Where the orange arrow points
+    leftStart: { x: -30, y: 332, rotate: -40 },  // Start: Where the green dot is on the left
+    leftMid:   { x: 180, y: 166, rotate: 0 },    // Mid-point: The "corner" or bend in your two linear segments
+    leftEnd:   { x: 256, y: 166, rotate: 0 },    // End: Where the orange arrow points
 
     // The initial position before any animation (can be outside frame)
     initialOffscreen: { x: -1100, y: -1100 } // Or wherever plane should start initially if not on a curve
@@ -211,7 +211,7 @@ const FlightAnimation = () => {
   return (
     <div
       ref={animationContainerRef} // Assign the new ref here
-      className={`lg:w-2/3 mx-auto font-semibold flex ${futura.className} lg:py-18 rounded-4xl lg:rounded-[62px] bg-gray-100 relative overflow-hidden`}
+      className={`lg:w-2/3 mx-auto font-semibold flex ${futura.className} lg:py-22 rounded-4xl lg:rounded-[62px] bg-gray-100 relative overflow-hidden`}
       style={{ minHeight: '600px' }}
     >
       {/* Plane Icon (absolutely positioned) */}
@@ -232,7 +232,6 @@ const FlightAnimation = () => {
           <CurvedDottedLine pathData={leftCurvePathData} strokeColor="#6d8c3f" strokeWidth={0.75} dashArray="22 6" svgRef={leftCurveSvgRef} />
         </div>
         <div className='shadow-lg rounded-xl border-2 border-gray-300 p-6 flex-grow'>
-          {/* ... (rest of your boarding pass content) ... */}
             <div className='flex items-center'>
                 <div className='w-1/2'>
                     <Image src={AirCanadaLogo} className='w-full' alt="" />
