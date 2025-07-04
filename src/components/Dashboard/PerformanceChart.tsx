@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../UI/Card';
 import ChartPlaceholder from '../UI/ChartPlaceholder';
-import { PortfolioData } from '../../lib/investTypes';
+// import { PortfolioData } from '../../lib/investTypes';
 
 // interface PerformanceChartProps {
 //   // data: PortfolioData['performanceHistory'];

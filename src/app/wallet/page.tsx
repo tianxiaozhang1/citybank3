@@ -42,7 +42,7 @@ import Presto from '../../../public/png/Presto_Card.svg'
 
 import { CheckmarkDrawingAnimationOnScroll } from '../../components/Wallet/CheckmarkDrawingAnimation'
 
-import LogoBox from '../../components//Wallet/LogoBox'; // Adjust path as needed
+// import LogoBox from '../../components//Wallet/LogoBox'; // Adjust path as needed
 import { logoData } from '../../data/logos'; // Adjust path as needed
 
 import LoyaltyRewards from '../../components/Wallet/LoyaltyRewards'
@@ -119,24 +119,24 @@ const BatteryIcon = () => {
 
 function Wallet() {
 
-    // FOR BRAND ICONS FALLING START
-    const containerRef = useRef(null);
-    // Trigger animation when 60% of the container is in view, only once
-    const isInView = useInView(containerRef, { once: true, amount: 0.6 });
+    // // FOR BRAND ICONS FALLING START
+    // const containerRef = useRef(null);
+    // // Trigger animation when 60% of the container is in view, only once
+    // const isInView = useInView(containerRef, { once: true, amount: 0.6 });
 
-    // Define animation variants for each LogoBox
-    const fallAnimationVariants = {
-        hidden: { y: -1000, opacity: 1 }, // Starts 50px above and invisible
-        visible: { y: 0, opacity: 1 },  // Ends at its natural position, fully visible
-    };
+    // // Define animation variants for each LogoBox
+    // const fallAnimationVariants = {
+    //     hidden: { y: -1000, opacity: 1 }, // Starts 50px above and invisible
+    //     visible: { y: 0, opacity: 1 },  // Ends at its natural position, fully visible
+    // };
 
-    // Calculate total number of rows
-    const totalRows = logoData.length;
-    // Base delay for each LogoBox
-    const baseDelay = 0.04; // Adjust for faster/slower individual fall
-    // Delay increment for each row
-    const rowDelayIncrement = 0.15; // Adjust for more/less staggering between rows
-    // FOR BRAND ICONS FALLING END
+    // // Calculate total number of rows
+    // const totalRows = logoData.length;
+    // // Base delay for each LogoBox
+    // const baseDelay = 0.04; // Adjust for faster/slower individual fall
+    // // Delay increment for each row
+    // const rowDelayIncrement = 0.15; // Adjust for more/less staggering between rows
+    // // FOR BRAND ICONS FALLING END
 
     return (
         <div className='bg-stone-200'>
