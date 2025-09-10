@@ -7,7 +7,7 @@ import { ChevronDown } from 'lucide-react'; // Using Lucide React for the chevro
 
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
+// const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
 // const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
 
 // Interface for a single accordion item's data

@@ -2,7 +2,7 @@ import React from 'react'
 
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
+// const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
 
 import SplashPhone from './SplashPhone'
 

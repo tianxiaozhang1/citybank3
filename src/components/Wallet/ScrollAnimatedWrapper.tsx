@@ -41,10 +41,10 @@ const ScrollAnimatedWrapper: React.FC<ScrollAnimatedWrapperProps> = ({
 
   // --- FIX APPLIED HERE ---
   // Safely get the name of the child component for logging
-  const childName =
-    React.isValidElement(children) && typeof children.type === 'function' && children.type.name
-      ? children.type.name
-      : 'React Component';
+  // const childName =
+  //   React.isValidElement(children) && typeof children.type === 'function' && children.type.name
+  //     ? children.type.name
+  //     : 'React Component';
 
   // You can now use childName in your console.log if you add one.
   // For example:

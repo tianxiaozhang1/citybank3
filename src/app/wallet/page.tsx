@@ -10,7 +10,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import localFont from 'next/font/local'
 const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
-const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
+// const futuraLight = localFont({ src: '../../fontFiles/FuturaCyrillicLight.ttf' })
 // const futuraBold = localFont({ src: '../../fontFiles/FuturaCyrillicBold.ttf' })
 
 import Header from '../../components/Header'; 
