@@ -1,23 +1,24 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// , { useState, useEffect }
 import Head from 'next/head';
 // import Image from 'next/image'; 
-import Header from '../components/Header'
+// import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 import localFont from 'next/font/local'
-const futura = localFont({ src: '../fontFiles/FuturaCyrillicBook.ttf' })
+// const futura = localFont({ src: '../fontFiles/FuturaCyrillicBook.ttf' })
 // const futuraLight = localFont({ src: '../fontFiles/FuturaCyrillicLight.ttf' })
 // const futuraBold = localFont({ src: '../fontFiles/FuturaCyrillicBold.ttf' })
-import { lora } from '../fonts'; 
+// import { lora } from '../fonts'; 
 // , inter
-import { Check, ArrowRight, PiggyBank, Banknote, CreditCard, ChartNoAxesCombined, HousePlus, 
-          BanknoteArrowDown, LaptopMinimalCheckIcon, MessageCircleHeart, CirclePercent, CircleDollarSign, 
-          CircleCheck, CirclePlus, CircleUserRound, CircleParking } from 'lucide-react';
+// import { Check, ArrowRight, PiggyBank, Banknote, CreditCard, ChartNoAxesCombined, HousePlus, 
+//           BanknoteArrowDown, LaptopMinimalCheckIcon, MessageCircleHeart, CirclePercent, CircleDollarSign, 
+//           CircleCheck, CirclePlus, CircleUserRound, CircleParking } from 'lucide-react';
 
-import Sample1 from '../../public/jpg/sample1a.jpg'
+// import Sample1 from '../../public/jpg/sample1a.jpg'
 
-import glassStyles from '../styles/glass.module.css'
+// import glassStyles from '../styles/glass.module.css'
 
 import Wallet from './wallet/page'
 
