@@ -6,7 +6,7 @@ import Head from 'next/head';
 // import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-import localFont from 'next/font/local'
+// import localFont from 'next/font/local'
 // const futura = localFont({ src: '../fontFiles/FuturaCyrillicBook.ttf' })
 // const futuraLight = localFont({ src: '../fontFiles/FuturaCyrillicLight.ttf' })
 // const futuraBold = localFont({ src: '../fontFiles/FuturaCyrillicBold.ttf' })
