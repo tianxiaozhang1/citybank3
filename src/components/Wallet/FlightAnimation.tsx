@@ -164,18 +164,35 @@ const FlightAnimation = () => {
 
   // --- NEW useEffect for Intersection Observer ---
   useEffect(() => {
+    
+    // const observer = new IntersectionObserver(
+    //   (entries) => {
+    //     // Check if the target element is intersecting (i.e., in view)
+    //     if (entries[0].isIntersecting) {
+    //       setAnimationTriggered(true); // Set state to true when in view
+    //       observer.disconnect(); // Stop observing once triggered
+    //     }
+    //   },
+    //   {
+    //     root: null, // Use the viewport as the root
+    //     rootMargin: '0px', // No extra margin
+    //     threshold: 0.5, // Trigger when 50% of the element is visible
+    //   }
+    // );
+
     const observer = new IntersectionObserver(
       (entries) => {
-        // Check if the target element is intersecting (i.e., in view)
         if (entries[0].isIntersecting) {
-          setAnimationTriggered(true); // Set state to true when in view
-          observer.disconnect(); // Stop observing once triggered
+          setAnimationTriggered(true);
+          // Remove the disconnect() to keep observing
+        } else {
+          setAnimationTriggered(false); // Reset when leaving view
         }
       },
       {
-        root: null, // Use the viewport as the root
-        rootMargin: '0px', // No extra margin
-        threshold: 0.5, // Trigger when 50% of the element is visible
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5,
       }
     );
 

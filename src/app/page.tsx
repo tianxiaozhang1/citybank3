@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-// import Image from 'next/image'; 
+import Image from 'next/image'; 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -14,6 +14,10 @@ import { lora } from '../fonts';
 import { Check, ArrowRight, PiggyBank, Banknote, CreditCard, ChartNoAxesCombined, HousePlus, 
           BanknoteArrowDown, LaptopMinimalCheckIcon, MessageCircleHeart, CirclePercent, CircleDollarSign, 
           CircleCheck, CirclePlus, CircleUserRound, CircleParking } from 'lucide-react';
+
+import Sample1 from '../../public/jpg/sample1a.jpg'
+
+import glassStyles from '../styles/glass.module.css'
 
 const InfoBoxText: React.FC<{ title: string; description: string }> = ({ title, description }) => {
   return (
@@ -256,7 +260,7 @@ export default function HomePage() {
                 </div>
 
               </div>
-              <div className='h-full flex items-center justify-center lg:justify-start'>
+              <div className='hidden h-full  items-center justify-center lg:justify-start'>
                   <div className={`border-2 border-stone-200 flex items-center mx-6 md:mx-10 lg:mx-0 py-6 lg:py-0 lg:h-120 xl:h-140 px-6 md:px-8 lg:w-176 rounded-4xl justify-center bg-slate-50 shadow-sm ${futura.className}`}>
                       <div>
                           <div className='text-lg lg:text-2xl xl:text-3xl'>{greeting}.</div>
@@ -298,6 +302,30 @@ export default function HomePage() {
                           <div className='text-lg lg:text-xl xl:text-2xl'>Forgot password?</div>
                           <div className='text-base lg:text-xl xl:text-2xl'>Don&apos;t have an account yet? Sign up</div>
 
+                      </div>
+                  </div>
+              </div>
+
+              <div className='w-full h-full lg:max-w-[600px] xl:max-w-[750px] flex text-center lg:text-start lg:justify-start items-center '>
+                  <div className='px-4 lg:px-12 h-full w-full'>
+                      <div className=' h-full w-full lg:h-120 xl:h-140 flex space-x-2'>
+                          <div className={`w-full rounded-3xl ${futura.className}`}
+                            style={{
+                                backgroundImage: `url(${Sample1.src})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'top',
+                                opacity: 1
+                            }}
+                          >
+                            <div className='h-1/3 text-white text-6xl font-semibold text-center pt-12 px-16'>
+                                Higher yields to help reach your goals
+                            </div>
+                            <div className='h-2/3 flex items-end pb-6 px-6'>
+                                <div className={`rounded-2xl text-2xl text-white p-2 bg-gray-100 ${glassStyles.glass}`}>
+                                    Lower-fee investing and a high-interest chequing account make adding zeros to your balance a whole lot easier.
+                                </div>
+                            </div>
+                          </div>         
                       </div>
                   </div>
               </div>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'; //, useEffect
+import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 // Define the props for the ScrollAnimatedWrapper component
@@ -38,6 +38,18 @@ const ScrollAnimatedWrapper: React.FC<ScrollAnimatedWrapperProps> = ({
     hidden: { opacity: 1, y: 72 }, // Initial state: invisible and 50px down
     visible: { opacity: 1, y: 0 },  // Animated state: fully visible and at original position
   };
+
+  // --- FIX APPLIED HERE ---
+  // Safely get the name of the child component for logging
+  const childName =
+    React.isValidElement(children) && typeof children.type === 'function' && children.type.name
+      ? children.type.name
+      : 'React Component';
+
+  // You can now use childName in your console.log if you add one.
+  // For example:
+  // console.log(`ScrollAnimatedWrapper wrapping ${childName}: isInView = ${isInView}`);
+
 
   return (
     <motion.div
