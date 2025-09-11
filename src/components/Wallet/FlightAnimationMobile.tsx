@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react'; // Import useState
+import React from 'react'; // Import useState
 import Image from 'next/image';
 import { ScrollReveal } from './ScrollReveal'
 
