@@ -17,7 +17,7 @@ const LogoBox: React.FC<LogoBoxProps> = ({
 }) => {
   return (
     <div
-      className={`w-36 h-36 ${bgColor} rounded-4xl flex justify-center items-center`}
+      className={`w-22 h-22 lg:w-36 lg:h-36 ${bgColor} rounded-xl lg:rounded-4xl flex justify-center items-center`}
     >
       <Image
         src={src}

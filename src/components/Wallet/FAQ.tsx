@@ -33,7 +33,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isOpen, onToggle })
     <div className={`border-b border-gray-200 last:border-b-0 ${futura.className}`}>
       {/* Accordion Header (Question) */}
       <button
-        className={`flex justify-between items-center w-full py-6 px-6 text-left text-2xl text-gray-600 cursor-pointer transition-colors duration-200 ease-in-out font-semibold ${futura.className}`}
+        className={`flex justify-between items-center w-full py-4 px-4 lg:py-6 lg:px-6 text-left text-xl lg:text-2xl text-gray-600 cursor-pointer transition-colors duration-200 ease-in-out font-normal lg:font-semibold ${futura.className}`}
         onClick={() => onToggle(item.id)}
         aria-expanded={isOpen}
         aria-controls={`accordion-content-${item.id}`}
@@ -120,8 +120,8 @@ const Accordion: React.FC = () => {
   };
 
   return (
-    <div className="w-full mx-auto my-12 p-6 ">
-      <h2 className={`text-7xl font-bold text-gray-700 mb-6 text-center ${futura.className}`}>Questions? Answers.</h2>
+    <div className="w-full mx-auto my-2 lg:my-12 px-6 lg:py-6">
+      <h2 className={`text-4xl lg:text-7xl font-normal text-gray-700 mb-6 text-center ${futura.className}`}>Questions? Answers.</h2>
       {accordionData.map(item => (
         <AccordionItem
           key={item.id} // Unique key for list rendering

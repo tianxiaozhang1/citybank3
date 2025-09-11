@@ -3,9 +3,11 @@ import Image from 'next/image'
 
 import { CellularIcon, XLCellularIcon, WifiIcon, XLWifiIcon, BatteryIcon } from '../../components/graphics/PhoneIcons';
 import { Aldrich, Cinzel, PT_Sans_Narrow } from 'next/font/google';
+// , Lora
 const aldrich = Aldrich({ subsets: ['latin'], weight: "400" })
 const cinzel = Cinzel({ subsets: ['latin'], weight: "400" })
 const pt_sans_narrow = PT_Sans_Narrow({ subsets: ['latin'], weight: "400" })
+// const lora = Lora({ subsets: ['latin'], weight: "400" })
 
 const topThreeCards = "w-56 h-28 lg:w-56 lg:h-28 xl:w-70 xl:h-28 rounded-t-2xl mx-auto"
 import pixelMap from '../../../public/png/pixelmap2.png'
@@ -17,14 +19,16 @@ import AirCanada from '../../../public/creditcardlogos/AirCanada.png';
 import BurgerShack from '../../../public/creditcardlogos/BurgerShack.png';
 import Indigo from '../../../public/creditcardlogos/Indigo.svg';
 
+import ChipPNG from '../../../public/png/ccc2.png'
+
 const CreditCardChip = () => {
     return (
         <div className='h-17 xl:h-24 pl-7 xl:pl-8 flex md:pt-3 lg:pt-2 xl:pt-4'>
             <div className='h-7 w-9 xl:h-8 xl:w-10 bg-gradient-to-br from-yellow-300 to-yellow-600 rounded-md flex justify-between xl:mt-0.5 xl:ml-0.5'>
                 <div className='w-1/3 border-r-1.5 border-yellow-300'>
-                    <div className='h-1/4 border-b-1.5 border-yellow-300'></div>
-                    <div className='h-1/4 border-b-1.5 border-yellow-300'></div>
-                    <div className='h-1/4 border-b-1.5 border-yellow-300'></div>
+                    <div className='h-1/4 border-b-1.5 border-red-300'></div>
+                    <div className='h-1/4 border-b-1.5 border-red-300'></div>
+                    <div className='h-1/4 border-b-1.5 border-red-300'></div>
                 </div>
                 <div className='w-1/3 border-yellow-300'>
                     <div className='h-1/4'></div>
@@ -52,14 +56,14 @@ const CreditCardChip = () => {
 function SplashPhone() {
     return (
         <div>
-            <div className='md:mr-8 md:w-32 md:h-115 lg:w-68 lg:h-115 xl:w-82 xl:h-139 flex'>
+            <div className='md:mr-8 md:w-32 md:h-115 lg:w-68 lg:h-115 xl:w-82 xl:h-139 flex '>
                 <div className='w-1 h-115 xl:w-1 xl:h-139'>
                     <div className='w-1 mt-26 h-6 xl:mt-32 xl:h-7 bg-slate-700 rounded-l-xl'></div>
                     <div className='w-1 mt-5 h-11 xl:mt-6 xl:h-14 bg-slate-700 rounded-l-xl'></div>
                     <div className='w-1 mt-3 h-11 xl:mt-4 xl:h-14 bg-slate-700 rounded-l-xl'></div>
                 </div>
-                <div className='w-66 h-115 xl:w-80 xl:h-139 bg-slate-600 flex justify-center items-end rounded-t-[6vw] lg:rounded-t-[3vw] xl:rounded-t-[1.5vw]'>
-                    <div className='w-64 h-114 lg:w-64 lg:h-114 xl:w-78 xl:h-138 bg-white border-t-8 border-l-8 border-r-8 border-slate-800 overflow-hidden  rounded-t-[6vw] lg:rounded-t-[3vw] xl:rounded-t-[1.5vw]'>
+                <div className='w-66 h-115 xl:w-80 xl:h-139 bg-slate-600  flex justify-center items-end rounded-t-[6vw] lg:rounded-t-[3vw] xl:rounded-t-[1.5vw]'>
+                    <div className='w-64 h-114 lg:w-64 lg:h-114 xl:w-78 xl:h-138 bg-black border-t-8 border-l-8 border-r-8 border-slate-800 overflow-hidden  rounded-t-[6vw] lg:rounded-t-[3vw] xl:rounded-t-[1.5vw]'>
                         <div className='h-8 md:h-10 lg:h-12 w-full text-slate-800 flex justify-between px-7 lg:px-7 pt-2.5 md:pt-3'>
                             <div className='text-xs xl:text-sm font-semibold xl:mt-0.25'>10:20</div>
                             <div className='flex space-x-0.5 xl:space-x-1.5'>
@@ -80,7 +84,7 @@ function SplashPhone() {
                                 </div>
                             </div>
                         </div>
-                        <div className='px-4 py-0 md:pt-0 md:pb-1 lg:pb-2 flex justify-between mt-1'>
+                        <div className='px-4 py-0 md:pt-0 md:pb-1 lg:pb-2 flex justify-between mt-1 text-gray-50'>
                             <div className={`${aldrich.className}`}><div className='font-bold lg:text-xl xl:text-2xl py-1 text-rouLan'>CITY WALLET</div></div>
                             <div className='text-rouLan flex items-center'>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5 md:size-6 lg:size-7 xl:size-8">
@@ -89,20 +93,20 @@ function SplashPhone() {
                             </div>
                         </div>
 
-                        <div className={`bg-gradient-to-br from-black to-guanLv ${topThreeCards}`}>
+                        <div className={`bg-gradient-to-br from-[#2A6E3F] to-stone-900 ${topThreeCards} `}>
                             <div className='text-slate-200 px-4  pt-2 xl:pt-2 text-sm lg:h-9 xl:h-10'>
                                 <div className={`${aldrich.className}`}>
                                     <div className='font-bold flex xl:text-lg'>
-                                        <div className='text-stone-300'>CITY</div><div className='text-stone-200'>&nbsp;PREFERRED</div>
+                                        <div className='text-stone-200'>CITY</div><div className='text-stone-100'>&nbsp;PREFERRED</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className={`hidden md:flex bg-gradient-to-br from-red-800 to-luoShenZhu -mt-20 lg:-mt-20 xl:-mt-18 ${topThreeCards}`}>
+                        <div className={`hidden md:flex bg-gradient-to-br from-[#C8161D] to-[#422256] -mt-20 lg:-mt-20 xl:-mt-18 ${topThreeCards}`}>
                             <div className='text-slate-200 px-4 pt-2 xl:pt-2 text-sm lg:h-9 xl:h-10'>
                                 <div className={`${aldrich.className}`}>
                                     <div className='font-bold flex xl:text-lg'>
-                                        <div className='text-slate-200'>CITY</div><div className='text-slate-50'>&nbsp;EVERYDAY</div>
+                                        <div className='text-gray-200'>CITY</div><div className='text-gray-50'>&nbsp;EVERYDAY</div>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +116,7 @@ function SplashPhone() {
                             <div className='text-slate-200 px-4 pt-2 xl:pt-2 text-sm lg:h-9 xl:h-10'>
                                 <div className={`${aldrich.className}`}>
                                     <div className='font-bold flex xl:text-lg'>
-                                        <div className='text-slate-300'>CITY</div><div className='text-slate-200'>&nbsp;RESERVE</div>
+                                        <div className='text-slate-200'>CITY</div><div className='text-slate-100'>&nbsp;RESERVE</div>
                                     </div>
                                 </div>
                             </div>
@@ -129,15 +133,15 @@ function SplashPhone() {
                             <div className='text-slate-200 px-4 pt-2 xl:pt-2 text-sm lg:h-9 xl:h-10'>
                                 <div className={`${aldrich.className}`}>
                                     <div className='font-bold flex xl:text-lg'>
-                                        <div className='text-slate-300'>CITY</div><div className='text-slate-300'>&nbsp;TRAVEL</div>
+                                        <div className='text-slate-200'>CITY</div><div className='text-slate-100'>&nbsp;TRAVEL</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className='hidden md:flex'><CreditCardChip/></div>
+                            <div className='hidden md:flex h-1/2 pt-6 pl-6'><Image src={ChipPNG} alt="Chip" className='w-10 h-7' /></div>
 
-                            <div className='hidden md:flex items-end justify-between pl-4 pr-3 lg:h-9 xl:h-10'>
-                                <div className={`${pt_sans_narrow.className} text-slate-300 mb-2.5`}>A. NAME</div>
+                            <div className='hidden md:flex items-end justify-between pl-4 pr-3 lg:h-9 xl:h-10 mt-2'>
+                                <div className={`${pt_sans_narrow.className} text-slate-200 mb-2.5`}>TIAN</div>
                                 <div className='-mb-1'>
                                     <svg fill="#dcdcdc" width="52px" height="52px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.539 9.186a4.155 4.155 0 0 0-1.451-.251c-1.6 0-2.73.806-2.738 1.963-.01.85.803 1.329 1.418 1.613.631.292.842.476.84.737-.004.397-.504.577-.969.577-.639 0-.988-.089-1.525-.312l-.199-.093-.227 1.332c.389.162 1.09.301 1.814.313 1.701 0 2.813-.801 2.826-2.032.014-.679-.426-1.192-1.352-1.616-.563-.275-.912-.459-.912-.738 0-.247.299-.511.924-.511a2.95 2.95 0 0 1 1.213.229l.15.067.227-1.287-.039.009zm4.152-.143h-1.25c-.389 0-.682.107-.852.493l-2.404 5.446h1.701l.34-.893 2.076.002c.049.209.199.891.199.891h1.5l-1.31-5.939zm-10.642-.05h1.621l-1.014 5.942H9.037l1.012-5.944v.002zm-4.115 3.275.168.825 1.584-4.05h1.717l-2.551 5.931H5.139l-1.4-5.022a.339.339 0 0 0-.149-.199 6.948 6.948 0 0 0-1.592-.589l.022-.125h2.609c.354.014.639.125.734.503l.57 2.729v-.003zm12.757.606.646-1.662c-.008.018.133-.343.215-.566l.111.513.375 1.714H18.69v.001h.001z"/>
                                     </svg>

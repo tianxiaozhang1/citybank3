@@ -5,11 +5,11 @@ import LoyaltyRewards from './LoyaltyRewards'
 
 function LoyaltyRewardsSection() {
     return (
-        <div className='flex'>
-            <div className='w-1/2 h-full lg:pl-12 lg:py-20 '>
+        <div className='lg:flex py-8 lg:py-0'>
+            <div className='w-full lg:w-1/2 lg:h-full pl-10 pr-14 lg:pl-12 lg:py-20 '>
                 <LoyaltyRewards/>
             </div>
-            <div className='w-1/2 text-7xl lg:pl-12 lg:pr-22  flex items-end pb-32 text-gray-50'>
+            <div className='w-full lg:w-1/2 text-3xl lg:text-7xl px-8 lg:px-0 lg:pl-12 lg:pr-22 flex items-end lg:pb-32 py-6 lg:py-0 text-gray-50'>
                 <ScrollReveal>
                     <div>
                         <div>Loyalty and rewards.</div>

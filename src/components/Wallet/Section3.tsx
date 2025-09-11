@@ -6,9 +6,9 @@ const futura = localFont({ src: '../../fontFiles/FuturaCyrillicBook.ttf' })
 
 function Section3() {
     return (
-        <div className={`bg-gray-900 w-full ${futura.className} lg:space-y-12`}>
+        <div className={`bg-gray-900 w-full ${futura.className} space-y-12 lg:space-y-12`}>
             <div>
-                <div className='p-1 border-4 border-[#4994C4] rounded-full w-16'>
+                <div className='p-1 border-4 border-[#4994C4] rounded-full w-12 lg:w-16 mt-4 lg:mt-0'>
                     <CheckmarkDrawingAnimationOnScroll/>
                 </div>
                 <div className=' mt-3'>
@@ -16,7 +16,7 @@ function Section3() {
                 </div>
             </div>
             <div>
-                <div className='p-1 border-4 border-[#4994C4] rounded-full w-16'>
+                <div className='p-1 border-4 border-[#4994C4] rounded-full w-12 lg:w-16 mt-4 lg:mt-0'>
                     <CheckmarkDrawingAnimationOnScroll/>
                 </div>
                 <div className='mt-3'>
@@ -24,7 +24,7 @@ function Section3() {
                 </div>
             </div>
             <div>
-                <div className='p-1 border-4 border-[#4994C4] rounded-full w-16'>
+                <div className='p-1 border-4 border-[#4994C4] rounded-full w-12 lg:w-16 mt-4 lg:mt-0'>
                     <CheckmarkDrawingAnimationOnScroll/>
                 </div>
                 <div className=' mt-3'>
@@ -32,7 +32,7 @@ function Section3() {
                 </div>
             </div>
             <div>
-                <div className='p-1 border-4 border-[#4994C4] rounded-full w-16'>
+                <div className='p-1 border-4 border-[#4994C4] rounded-full w-12 lg:w-16 mt-4 lg:mt-0'>
                     <CheckmarkDrawingAnimationOnScroll/>
                 </div>
                 <div className=' mt-3'>

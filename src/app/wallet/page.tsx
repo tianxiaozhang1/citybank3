@@ -30,8 +30,10 @@ import Section3 from '../../components/Wallet/Section3'
 
 import PrestoComponent from '../../components/Wallet/Presto'
 import DuaLipaSection from '../../components/Wallet/DuaLipa'
+import DuaLipaSectionMobile from '../../components/Wallet/DuaLipaMobile'
 
 import Accordion from '../../components/Wallet/FAQ'
+import FlightAnimationMobile from '@/components/Wallet/FlightAnimationMobile';
 
 // Helper function to calculate threshold (can be kept outside component for purity)
 const getThresholds = (triggerPixels: number, sectionHeight: number): number => {
@@ -193,27 +195,28 @@ function Wallet() {
                 </div>
 
                 <div id="section2" ref={section2Ref}>
-                    <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default space-y-12 px-6 lg:px-0'>
+                    <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default space-y-12 px-6 lg:px-0 mt-20 lg:mt-0'>
                         {/* TITLE */}
                         <ScrollAnimatedWrapper>
-                            <div className={`lg:w-2/3 mx-auto font-semibold ${futura.className} bg-[#4994C4] px-12 lg:px-36 py-32 lg:py-36 rounded-4xl lg:rounded-[62px]`}>
+                            <div className={`text-4xl mb-12 lg:mb-0 lg:text-8xl lg:w-2/3 mx-auto font-medium lg:font-semibold ${futura.className} bg-[#4994C4] px-8 lg:px-36 py-12 lg:py-36 rounded-4xl lg:rounded-[62px]`}>
                                 <ScrollReveal>
-                                    <div className='text-gray-50 text-8xl'>                         
+                                    <div className='text-gray-50'>                         
                                         Payments and Rewards
                                     </div>
-                                    <div className='text-[#06436F] text-8xl'>
+                                    <div className='text-[#06436F]'>
                                         Start here.
-                                    </div><div className='text-[#06436F] text-8xl'>
+                                    </div><div className='text-[#06436F]'>
                                         Pay anywhere.
                                     </div>
                                 </ScrollReveal>
                             </div>
                         </ScrollAnimatedWrapper>
 
-                        <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default'>
-                            <div className={`lg:w-2/3 mx-auto font-semibold ${futura.className} grid lg:grid-cols-2 gap-x-8 overflow-hidden`}>
+                        <div className='max-w-[400px] lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default'>
+                            <div className={`lg:w-2/3 mx-auto font-medium lg:font-semibold ${futura.className} grid lg:grid-cols-2 gap-x-8 overflow-hidden`}>
+                                
                                 <ScrollAnimatedWrapper>
-                                    <div className='rounded-4xl lg:rounded-[62px] bg-gray-700 text-gray-50 py-22 px-16 text-5xl lg:space-y-3'>
+                                    <div className='rounded-4xl lg:rounded-[62px] bg-gray-700 text-gray-50 py-12 lg:py-22 px-8 lg:px-16 text-3xl lg:text-5xl lg:space-y-3'>
                                         <ScrollReveal>
                                             <PaymentLeft/>
                                         </ScrollReveal>
@@ -221,7 +224,7 @@ function Wallet() {
                                 </ScrollAnimatedWrapper>
 
                                 <ScrollAnimatedWrapper>
-                                    <div className='rounded-4xl lg:rounded-[62px] bg-gray-50 text-gray-600 py-20 px-20 text-5xl'>
+                                    <div className='mt-6 lg:mt-0 rounded-4xl lg:rounded-[62px] bg-gray-50 text-gray-600 py-12 lg:py-20 px-8 lg:px-20 text-3xl lg:text-5xl'>
                                         <ScrollReveal>
                                             <PaymentRight/>
                                         </ScrollReveal>
@@ -232,8 +235,8 @@ function Wallet() {
 
                         {/* LoyaltyRewards */}
                         <ScrollAnimatedWrapper>
-                            <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default  '>
-                                <div className={`lg:w-2/3 mx-auto font-semibold ${futura.className} bg-[#003460] rounded-4xl lg:rounded-[62px] flex overflow-hidden`}>
+                            <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default py-6 lg:py-0  '>
+                                <div className={`lg:w-2/3 mx-auto font-medium lg:font-semibold ${futura.className} bg-[#003460] rounded-4xl lg:rounded-[62px] flex overflow-hidden`}>
                                     <LoyaltyRewardsSection/>
                                 </div>
                             </div>
@@ -242,24 +245,24 @@ function Wallet() {
                 </div>
 
                 <div id="section3" ref={section3Ref} className=''>
-                    <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default px-6 lg:px-0 text-gray-50 text-6xl'>
-                        <div className={`rounded-4xl lg:rounded-[62px] lg:w-2/3 mx-auto px-4 lg:px-32 lg:pt-38 lg:pb-42 bg-gray-900`}>
+                    <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default px-6 lg:px-0 text-gray-50 text-3xl lg:text-6xl'>
+                        <div className={`rounded-4xl lg:rounded-[62px] lg:w-2/3 mx-auto px-8 lg:px-32 pt-12 pb-12 lg:pt-38 lg:pb-42 bg-gray-900`}>
                             <Section3/>
                         </div>
                     </div>
                 </div>
 
                 {/* TRANSIT */}
-                <div id="section4" ref={section4Ref} className=''>
+                <div id="section4" ref={section4Ref} className='mt-12 lg:mt-0'>
                     <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default space-y-12 px-6 lg:px-0'>
                         {/* TITLE */}
                         <>
-                            <div className={`lg:w-2/3 mx-auto font-semibold ${futura.className} bg-[#6d8c3f] px-12 lg:px-36 py-32 lg:py-36 rounded-4xl lg:rounded-[62px]`}>
+                            <div className={`text-4xl lg:text-8xl lg:w-2/3 mx-auto font-normal lg:font-semibold ${futura.className} bg-[#6d8c3f] px-8 lg:px-36 py-12 lg:py-36 rounded-4xl lg:rounded-[62px]`}>
                                 <ScrollReveal>
-                                    <div className='text-gray-50 text-8xl'>
+                                    <div className='text-gray-50 '>
                                         Transit and Tickets
                                     </div>
-                                    <div className='text-[#C0D695] text-8xl'>
+                                    <div className='text-[#C0D695]'>
                                         Your even more mobile device.
                                     </div>
                                 </ScrollReveal>
@@ -268,21 +271,24 @@ function Wallet() {
 
                         {/* PRESTO */}
                         <ScrollAnimatedWrapper>
-                            <div className={`lg:w-2/3 mx-auto font-semibold flex ${futura.className} bg-black rounded-4xl lg:rounded-[62px] overflow-hidden`}>
+                            <div className={`lg:w-2/3 mx-auto font-semibold flex ${futura.className} bg-black rounded-4xl lg:rounded-[62px] overflow-hidden mt-12 lg:mt-0`}>
                                 <PrestoComponent/>
                             </div>
                         </ScrollAnimatedWrapper>
 
                         {/* AIR CANADA */}
                         <ScrollAnimatedWrapper>
-                            <FlightAnimation  />
+                            <div className='hidden lg:block'><FlightAnimation /></div>
+                            <div className='lg:hidden mt-12'><FlightAnimationMobile /></div>
                         </ScrollAnimatedWrapper>                       
 
                         {/* DUALIPA */}
                         <ScrollAnimatedWrapper>
-                            <div className={`lg:w-2/3 mx-auto font-semibold flex ${futura.className} bg-gray-950 text-white text-3xl rounded-4xl lg:rounded-[62px] overflow-hidden`}>
-                                <DuaLipaSection/>
+                            <div className={`hidden lg:flex lg:w-2/3 mx-auto font-semibold  ${futura.className} bg-gray-950 text-white text-3xl rounded-4xl lg:rounded-[62px] overflow-hidden`}>
+                                <div className=''><DuaLipaSection /></div>
+                                
                             </div>
+                            <div className='lg:hidden mt-12 mb-12 '><DuaLipaSectionMobile /></div>
                         </ScrollAnimatedWrapper>
                     </div>
 
@@ -300,17 +306,15 @@ function Wallet() {
 
                 {/* <div className='bg-sky-400 h-100 w-full'></div> */}
 
-                <div className='bg-gray-50'>
+                <div className='bg-stone-100'>
                     <div className='lg:max-w-[1200px] xl:max-w-[1500px] mx-auto cursor-default space-y-12 px-6 lg:px-0 py-12'>
                         <div className='lg:w-2/3 mx-auto w-full text-6xl pb-12 pt-6'>
                             <Accordion/>
                         </div>
                     </div>
 
-                    <div className='bg-amber-200 h-200 w-full'></div>
+                    {/* <div className='bg-amber-200 h-200 w-full'></div> */}
                 </div>
-
-                
 
             </div>
 

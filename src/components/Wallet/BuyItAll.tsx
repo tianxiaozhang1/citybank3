@@ -15,7 +15,7 @@ function BuyItAll() {
               alt={emoji.alt}
               // Use 'inline-block' if you need each image to behave like text but have block properties (like width/height)
               // The 'lg:w-12' on the Image itself will make it behave correctly as an inline element.
-              className='lg:w-12 inline-block mx-1' // Add inline-block to ensure consistent text flow
+              className='w-11 lg:w-12 inline-block mx-1' // Add inline-block to ensure consistent text flow
             />
           );
         })}
