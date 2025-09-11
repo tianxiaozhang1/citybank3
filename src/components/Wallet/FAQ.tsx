@@ -33,7 +33,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isOpen, onToggle })
     <div className={`border-b border-gray-200 last:border-b-0 ${futura.className}`}>
       {/* Accordion Header (Question) */}
       <button
-        className={`flex justify-between items-center w-full py-4 px-4 lg:py-6 lg:px-6 text-left text-xl lg:text-2xl text-gray-600 cursor-pointer transition-colors duration-200 ease-in-out font-normal lg:font-semibold ${futura.className}`}
+        className={`flex justify-between items-center w-full py-4 px-4 md:px-42 lg:py-6 lg:px-6 text-left text-xl  lg:text-2xl text-gray-600 cursor-pointer transition-colors duration-200 ease-in-out font-normal lg:font-semibold ${futura.className}`}
         onClick={() => onToggle(item.id)}
         aria-expanded={isOpen}
         aria-controls={`accordion-content-${item.id}`}
@@ -51,7 +51,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isOpen, onToggle })
         id={`accordion-content-${item.id}`}
         role="region"
         aria-hidden={!isOpen}
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`overflow-hidden transition-all duration-300 ease-in-out md:px-42 lg:px-10 ${
           isOpen ? 'max-h-screen opacity-100 pt-2 pb-6 px-6 text-start' : 'max-h-0 opacity-0 py-0 px-6'
         }`}
       >
@@ -121,7 +121,7 @@ const Accordion: React.FC = () => {
 
   return (
     <div className="w-full mx-auto my-2 lg:my-12 px-6 lg:py-6">
-      <h2 className={`text-4xl lg:text-7xl font-normal text-gray-700 mb-6 text-center ${futura.className}`}>Questions? Answers.</h2>
+      <h2 className={`text-4xl md:text-5xl lg:text-7xl font-normal text-gray-700 mb-6 text-center ${futura.className}`}>Questions? Answers.</h2>
       {accordionData.map(item => (
         <AccordionItem
           key={item.id} // Unique key for list rendering

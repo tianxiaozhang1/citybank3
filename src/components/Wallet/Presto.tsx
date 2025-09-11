@@ -21,7 +21,7 @@ function PrestoComponent() {
                         <div className='bg-gray-50 rounded-full h-4 lg:h-8 w-4 lg:w-8 ml-12 lg:ml-22 hidden lg:flex'></div>
                     </div>
                 </div>
-                <div className='w-full px-6 lg:px-22 pt-0 pb-12 lg:pt-22 lg:pb-22 text-4xl lg:text-7xl font-medium lg:font-semibold overflow-visible'>
+                <div className='w-full px-6 md:px-10 lg:px-22 pt-0 pb-12 lg:pt-22 lg:pb-22 text-4xl md:text-5xl lg:text-7xl font-medium lg:font-semibold overflow-visible'>
                     <ScrollReveal>
                         <div className='text-[#C0D695]'>Express Mode.</div>
                         <div className='text-gray-50'>Tap. Ride. Done.</div>
@@ -54,7 +54,7 @@ function PrestoComponent() {
                         </div>
                     </div>
                     <div className='h-full mx-auto '>
-                        <div className='lg:h-106 lg:w-106 w-36 h-37 mx-auto bg-gray-800 rounded-3xl lg:rounded-4xl flex justify-center pt-1 lg:pt-6 overflow-hidden'>
+                        <div className='lg:h-106 lg:w-106 w-36 h-37 md:w-56 md:h-56 mx-auto bg-gray-800 rounded-3xl lg:rounded-4xl flex justify-center pt-1 lg:pt-6 overflow-hidden'>
                             <div><Image src={Presto1} alt='Phone Screen' /></div>
                             <div className='hidden bg-[#363739] rounded-t-[52px] w-90 justify-center pt-0.5 border-t-2 border-x-2 border-[#121214] overflow-visible'>
                                 <div className='bg-gray-100 rounded-t-[48px] w-88 pt-2 border-t-8 border-x-8 border-black overflow-visible'>

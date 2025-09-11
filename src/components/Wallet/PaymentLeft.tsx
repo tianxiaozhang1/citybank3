@@ -8,7 +8,7 @@ function PaymentLeft() {
     return (
         <div className=''>
             <div className='px-2 lg:space-y-4'>
-                <div className='border-2 border-gray-400 px-3 py-0.5 rounded-2xl uppercase w-fit text-sm lg:text-base mb-8'>New</div>
+                <div className='border-2 border-gray-400 px-3 py-0.5 rounded-2xl uppercase w-fit text-sm md:text-base mb-8'>New</div>
                 <div className='text-[#a6caf8]'>Flexible payments.</div>
                 <div>For all the ways you pay.</div>
             </div>
